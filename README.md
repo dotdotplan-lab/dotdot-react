@@ -1,1 +1,1 @@
-# erp_react_front
+# dotdot-react
