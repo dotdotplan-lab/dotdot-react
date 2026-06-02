@@ -39,7 +39,7 @@ function Home() {
     staleTime: 1000 * 60 * 5, // 5분 동안 데이터가 신선함(fresh) 상태로 유지
     refetchOnWindowFocus: false,
   });
-
+  console.log('data:', data, 'isLoading:', isLoading, 'error:', error);
   // 2] 등록
   const { mutate: createNewCanvas, isLoading: isLoadingCreate } = useMutation({
     mutationFn: createCanvas,
