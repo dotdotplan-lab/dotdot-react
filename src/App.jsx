@@ -19,25 +19,32 @@ import 'tinymce/plugins/code';
 // plugin resources
 import 'tinymce/plugins/emoticons/js/emojis';
 import TinyMCEExample from "./sample/TinyMCEExample.jsx";
+import {Header} from "./board/components/Header.jsx";
+import Main from "./board/components/Main.jsx";
+import {Outlet} from "react-router";
 
 // global 등록
 window.tinymce = tinymce;
 
 function App() {
     // 혹시 모듈 로딩 순서 문제 방지
-    if (typeof window !== 'undefined' && !window.tinymce) {
-        window.tinymce = tinymce;
-    }
-
-    const editorRef = useRef(null);
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent());
-    }
-  };
+  //   if (typeof window !== 'undefined' && !window.tinymce) {
+  //       window.tinymce = tinymce;
+  //   }
+  //
+  //   const editorRef = useRef(null);
+  // const log = () => {
+  //   if (editorRef.current) {
+  //     console.log(editorRef.current.getContent());
+  //   }
+  // };
   return (
       <>
-        <TinyMCEExample />
+        {/*<TinyMCEExample />*/}
+          <Header />
+          <Main>
+              <Outlet />
+          </Main>
       </>
   );
 }
