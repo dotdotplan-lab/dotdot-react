@@ -234,77 +234,10 @@
       }
     },
     {
-      "title": "7f98_새로운 린 캔버스",
-      "lastModified": "2026-04-20 19:45:42",
+      "title": "7b13_새로운 린 캔버스",
+      "lastModified": "2026-06-02 18:01:55",
       "category": "신규",
-      "id": "6",
-      "problem": {
-        "notes": [
-          {
-            "id": "5d55a0a0-ecbb-45db-beb4-056c3147773f",
-            "content": "",
-            "color": ""
-          },
-          {
-            "id": "3f5f5a30-5702-4aa4-8a64-a98caa481e15",
-            "content": "",
-            "color": ""
-          },
-          {
-            "id": "5f567e47-47e4-4b59-bd6a-49b22de7db21",
-            "content": "",
-            "color": ""
-          },
-          {
-            "id": "00bd683d-6f83-45cd-9945-8ef5ccc1c9f1",
-            "content": "",
-            "color": ""
-          }
-        ]
-      }
-    },
-    {
-      "title": "91e9_새로운 린 캔버스",
-      "lastModified": "2026-06-02 14:16:54",
-      "category": "신규",
-      "id": "ksxemQ4qPVg"
-    },
-    {
-      "title": "da06_새로운 린 캔버스",
-      "lastModified": "2026-06-02 14:17:00",
-      "category": "신규",
-      "id": "pOToscD4X_g"
-    },
-    {
-      "title": "5e7f_새로운 린 캔버스",
-      "lastModified": "2026-06-02 14:17:02",
-      "category": "신규",
-      "id": "-w1I9LnwXLk"
-    },
-    {
-      "title": "1e28_새로운 린 캔버스",
-      "lastModified": "2026-06-02 14:17:05",
-      "category": "신규",
-      "id": "Hf9myu1z9AM"
-    },
-    {
-      "title": "b108_새로운 린 캔버스",
-      "lastModified": "2026-06-02 17:49:39",
-      "category": "신규",
-      "id": "WcDtFDP",
-      "problem": {
-        "notes": []
-      }
-    },
-    {
-      "title": "3da5_새로운 린 캔버스",
-      "lastModified": "2026-06-02 17:49:43",
-      "category": "신규",
-      "id": "Ps-dlk_"
-    },
-    {
-      "title": "new canvas",
-      "id": "d0u_YCs"
+      "id": "S5_6LWo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
