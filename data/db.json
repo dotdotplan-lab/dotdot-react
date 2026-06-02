@@ -286,6 +286,25 @@
       "lastModified": "2026-06-02 14:17:05",
       "category": "신규",
       "id": "Hf9myu1z9AM"
+    },
+    {
+      "title": "b108_새로운 린 캔버스",
+      "lastModified": "2026-06-02 17:49:39",
+      "category": "신규",
+      "id": "WcDtFDP",
+      "problem": {
+        "notes": []
+      }
+    },
+    {
+      "title": "3da5_새로운 린 캔버스",
+      "lastModified": "2026-06-02 17:49:43",
+      "category": "신규",
+      "id": "Ps-dlk_"
+    },
+    {
+      "title": "new canvas",
+      "id": "d0u_YCs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

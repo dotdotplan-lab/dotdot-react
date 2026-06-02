@@ -10,6 +10,7 @@ import App from './App.jsx';
 import Home from './board/pages/Home.jsx';
 import ErrorPage from './board/pages/ErrorPage.jsx';
 import CanvasDetail from "./board/pages/CanvasDetail.jsx";
+import Board from "./board/pages/Board.jsx";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "canvases/:id",
                 element: <CanvasDetail />,
+            },
+            {
+                path: "board",
+                element: <Board />,
             },
         ],
         errorElement: <ErrorPage />

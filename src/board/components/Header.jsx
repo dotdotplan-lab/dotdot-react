@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router';
-import { FaEnvelope, FaHome, FaInfoCircle, FaBars, FaTimes } from 'react-icons/fa';
+import { FaEnvelope, FaHome, FaInfoCircle, FaBars, FaTimes, FaList} from 'react-icons/fa';
 import { useState } from 'react';
 import Button from './Button.jsx';
 // import './Header.css';
@@ -10,6 +10,7 @@ export function Header() {
     { id: 'home', label: 'Home', icon: <FaHome />, to: '/' },
     { id: 'about', label: 'About', icon: <FaInfoCircle />, to: '/about' },
     { id: 'contact', label: 'Contact', icon: <FaEnvelope />, to: '/contact' },
+    { id: 'board', label: 'Board', icon: <FaList />, to: '/board' },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);

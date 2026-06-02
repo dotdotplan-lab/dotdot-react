@@ -23,24 +23,23 @@ import {Header} from "./board/components/Header.jsx";
 import Main from "./board/components/Main.jsx";
 import {Outlet} from "react-router";
 
-// global 등록
+// tinymce editor global 변수 등록
 window.tinymce = tinymce;
 
 function App() {
-    // 혹시 모듈 로딩 순서 문제 방지
-  //   if (typeof window !== 'undefined' && !window.tinymce) {
-  //       window.tinymce = tinymce;
-  //   }
-  //
-  //   const editorRef = useRef(null);
-  // const log = () => {
-  //   if (editorRef.current) {
-  //     console.log(editorRef.current.getContent());
-  //   }
-  // };
+    // tinymce editor 모듈 로딩 순서 문제 방지
+    if (typeof window !== 'undefined' && !window.tinymce) {
+        window.tinymce = tinymce;
+    }
+
+    const editorRef = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
+    }
+  };
   return (
       <>
-        {/*<TinyMCEExample />*/}
           <Header />
           <Main>
               <Outlet />
