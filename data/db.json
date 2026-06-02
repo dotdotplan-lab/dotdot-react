@@ -237,7 +237,10 @@
       "title": "7b13_새로운 린 캔버스",
       "lastModified": "2026-06-02 18:01:55",
       "category": "신규",
-      "id": "S5_6LWo"
+      "id": "S5_6LWo",
+      "problem": {
+        "notes": []
+      }
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

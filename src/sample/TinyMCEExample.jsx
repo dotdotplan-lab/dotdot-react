@@ -29,22 +29,15 @@ export default function TinyMCEExample() {
                         "lists",
                         "link",
                         "image",
-                        "charmap",
-                        "preview",
-                        "anchor",
-                        "searchreplace",
-                        "visualblocks",
+                        "table",
                         "code",
                         "fullscreen",
-                        "insertdatetime",
-                        "media",
-                        "table",
-                        "help",
                         "wordcount",
                     ],
                     toolbar:
-                        "undo redo | blocks | bold italic forecolor | alignleft aligncenter alignright | " +
-                        "bullist numlist outdent indent | removeformat | help",
+                        "undo redo | bold italic underline | " +
+                        "alignleft aligncenter alignright | " +
+                        "bullist numlist | link image table | code fullscreen",
                 }}
             />
 

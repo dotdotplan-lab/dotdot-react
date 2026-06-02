@@ -11,14 +11,26 @@ import 'tinymce/models/dom';
 import 'tinymce/skins/ui/oxide/skin.css';
 
 // 필요한 플러그인만 import
-import 'tinymce/plugins/lists';
-import 'tinymce/plugins/link';
-import 'tinymce/plugins/table';
-import 'tinymce/plugins/code';
+import "tinymce/plugins/advlist";
+import "tinymce/plugins/autolink";
+import "tinymce/plugins/lists";
+import "tinymce/plugins/link";
+import "tinymce/plugins/image";
+import "tinymce/plugins/charmap";
+import "tinymce/plugins/preview";
+import "tinymce/plugins/anchor";
+import "tinymce/plugins/searchreplace";
+import "tinymce/plugins/visualblocks";
+import "tinymce/plugins/code";
+import "tinymce/plugins/fullscreen";
+import "tinymce/plugins/insertdatetime";
+import "tinymce/plugins/media";
+import "tinymce/plugins/table";
+import "tinymce/plugins/help";
+import "tinymce/plugins/wordcount";
 
 // plugin resources
 import 'tinymce/plugins/emoticons/js/emojis';
-import TinyMCEExample from "./sample/TinyMCEExample.jsx";
 import {Header} from "./board/components/Header.jsx";
 import Main from "./board/components/Main.jsx";
 import {Outlet} from "react-router";
