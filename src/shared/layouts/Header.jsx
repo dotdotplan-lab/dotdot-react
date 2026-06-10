@@ -24,7 +24,7 @@ export function Header() {
     <header className='sticky top-0 bg-gray-800 text-white z-30'>
       <div className="container mx-auto flex justify-between items-center h-14">
         <div>
-          <Link to="/" className="text-xl font-bold">Lean Canvas</Link>
+          <Link to="/" className="text-xl font-bold">dotdot.com</Link>
         </div>
         <nav className='hidden md:flex space-x-4'>
           {navItems.map(item => (
