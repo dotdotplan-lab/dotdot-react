@@ -4,13 +4,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './index.css';
-import About from './board/pages/About.jsx';
+import Calendar from './board/pages/Calendar.jsx';
 import Contact from './board/pages/Contact.jsx';
 import App from './App.jsx';
 import Home from './board/pages/Home.jsx';
 import ErrorPage from './board/pages/ErrorPage.jsx';
 import CanvasDetail from "./board/pages/CanvasDetail.jsx";
 import Board from "./board/pages/Board.jsx";
+import About from "./board/pages/About.jsx";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: "about",
                 element: <About />,
+            },
+            {
+                path: "calendar",
+                element: <Calendar />,
             },
             {
                 path: "contact",

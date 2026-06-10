@@ -1,16 +1,18 @@
 import { Link, NavLink } from 'react-router';
-import { FaEnvelope, FaHome, FaInfoCircle, FaBars, FaTimes, FaList} from 'react-icons/fa';
+import { FaEnvelope, FaHome, FaBars, FaTimes, FaIdCard, FaCalendar} from 'react-icons/fa';
 import { useState } from 'react';
 import Button from './Button.jsx';
+import {FaPencil} from "react-icons/fa6";
 // import './Header.css';
 
 export function Header() {
 
   const navItems = [
     { id: 'home', label: 'Home', icon: <FaHome />, to: '/' },
-    { id: 'about', label: 'About', icon: <FaInfoCircle />, to: '/about' },
+    { id: 'about', label: 'About', icon: <FaIdCard />, to: '/about' },
+    { id: 'calendar', label: 'Calendar', icon: <FaCalendar />, to: '/calendar' },
     { id: 'contact', label: 'Contact', icon: <FaEnvelope />, to: '/contact' },
-    { id: 'board', label: 'Board', icon: <FaList />, to: '/board' },
+    { id: 'board', label: 'Board', icon: <FaPencil />, to: '/board' },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,6 +29,7 @@ export function Header() {
         <nav className='hidden md:flex space-x-4'>
           {navItems.map(item => (
             <NavLink key={item.id} to={item.to} className="hover:text-gray-300">
+              {item.icon}
               {item.label}
             </NavLink>
           ))}
@@ -55,6 +58,7 @@ export function Header() {
         <nav className="flex flex-col space-y-4 p-4">
           {navItems.map(item => (
             <NavLink key={item.id} to={item.to} className="hover:text-gray-300">
+              {item.icon}
               {item.label}
             </NavLink>
           ))}
