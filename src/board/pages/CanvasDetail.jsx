@@ -1,5 +1,5 @@
-import CanvasTitle from '../components/CanvasTitle.jsx';
-import LeanCanvas from '../components/LeanCanvas.jsx';
+import CanvasTitle from '../components/Canvas/CanvasTitle.jsx';
+import LeanCanvas from '../components/Canvas/LeanCanvas.jsx';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { getCanvasById, updateCanvas, updateTitle } from '../api/canvas.js';

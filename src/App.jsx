@@ -31,8 +31,8 @@ import "tinymce/plugins/wordcount";
 
 // plugin resources
 import 'tinymce/plugins/emoticons/js/emojis';
-import {Header} from "./board/components/Header.jsx";
-import Main from "./board/components/Main.jsx";
+import {Header} from "./shared/layouts/Header.jsx";
+import Main from "./shared/components/Main.jsx";
 import {Outlet} from "react-router";
 
 // tinymce editor global 변수 등록
