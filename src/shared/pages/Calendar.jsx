@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import Button from '../../shared/layouts/Button.jsx';
+import Button from '../layouts/Button.jsx';
 
 function Calendar() {
   const queryClient = useQueryClient();

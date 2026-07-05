@@ -1,4 +1,4 @@
-import { canvases } from '../../shared/api/http.js';
+import { canvases } from './http.js';
 import { v4 as uuidv4 } from 'uuid';
 import dayjs from 'dayjs';
 
