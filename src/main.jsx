@@ -12,6 +12,7 @@ import ErrorPage from './board/pages/ErrorPage.jsx';
 import CanvasDetail from "./board/pages/CanvasDetail.jsx";
 import Board from "./board/pages/Board.jsx";
 import About from "./board/pages/About.jsx";
+import SaveForm from "./board/pages/SaveForm.jsx";
 
 const queryClient = new QueryClient();
 
@@ -20,30 +21,13 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
-            {
-                path: "",
-                element: <Home />,
-            },
-            {
-                path: "about",
-                element: <About />,
-            },
-            {
-                path: "calendar",
-                element: <Calendar />,
-            },
-            {
-                path: "contact",
-                element: <Contact />,
-            },
-            {
-                path: "canvases/:id",
-                element: <CanvasDetail />,
-            },
-            {
-                path: "board",
-                element: <Board />,
-            },
+            { path: "", element: <Home /> },
+            { path: "about", element: <About /> },
+            { path: "calendar", element: <Calendar /> },
+            { path: "contact", element: <Contact /> },
+            { path: "canvases/:id", element: <CanvasDetail /> },
+            { path: "board", element: <Board /> },
+            { path: "save-form", element: <SaveForm /> },
         ],
         errorElement: <ErrorPage />
     },
