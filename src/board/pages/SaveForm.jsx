@@ -21,7 +21,10 @@ export default function SaveForm() {
                 <div className="flex items-center justify-between mb-4">
                     <h1 className="text-2xl font-bold text-gray-800">게시판 등록</h1>
                         <div className="flex gap-2">
-                        <Button color="bule" onClick={() => navigate('/save-form')}>
+                        <Button onClick={() => navigate('/board')}>
+                            목록
+                        </Button>
+                        <Button color="bule" onClick={() => navigate('/update-form')}>
                             저장
                         </Button>
                         <Button color="red" onClick={() => navigate('/delete-form')}>
@@ -57,7 +60,7 @@ export default function SaveForm() {
                 />
 
                 <div style={{ marginTop: 10 }}>
-                    <button onClick={logContent}>내용 출력</button>
+                    <Button onClick={logContent}>내용 출력</Button>
                 </div>
             </div>
         </div>

@@ -11,8 +11,6 @@ export function Header() {
     { id: 'home', label: 'Home', icon: <FaHome />, to: '/' },
     { id: 'about', label: 'About', icon: <FaIdCard />, to: '/about' },
     { id: 'canvas', label: 'Canvas', icon: <FaCalendar />, to: '/canvas' },
-    // { id: 'calendar', label: 'Calendar', icon: <FaCalendar />, to: '/calendar' },
-    // { id: 'contact', label: 'Contact', icon: <FaEnvelope />, to: '/contact' },
     { id: 'board', label: 'Board', icon: <FaPencil />, to: '/board' },
     { id: 'shop', label: 'Shop', icon: <FaShop />, to: '/shop' },
     { id: 'blog', label: 'Blog', icon: <FaBlog />, to: '/blog' },
