@@ -3,15 +3,6 @@ import {useEffect, useState} from "react";
 import Button from "../../shared/layouts/Button.jsx";
 import { formatDate } from '../../shared/utils/formatDate.js';
 
-// 임시 더미 데이터 (실제 데이터 연동 전까지)
-/*
-const dummyPosts = [
-    { id: 3, title: "게시판 오픈했습니다", author: "관리자", date: "2026-07-05" },
-    { id: 2, title: "공지사항 확인해주세요", author: "관리자", date: "2026-07-03" },
-    { id: 1, title: "첫 번째 글입니다", author: "홍길동", date: "2026-07-01" },
-];
-*/
-
 const Board = () => {
     const navigate = useNavigate();
     const [lists, setLists] = useState([]);
@@ -32,7 +23,7 @@ const Board = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold text-gray-800">게시판</h1>
-          <Button onClick={() => navigate('/save-form')}>
+          <Button  color="blue" onClick={() => navigate('/save-form')}>
               등록
           </Button>
       </div>
@@ -50,20 +41,6 @@ const Board = () => {
                 </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                {/*{dummyPosts.length > 0 ? (
-                    dummyPosts.map((post) => (
-                        <tr
-                            key={post.id}
-                            className="hover:bg-gray-50 cursor-pointer transition-colors"
-                            onClick={() => navigate(`/board/${post.id}`)}
-                        >
-                            <td className="px-4 py-3 text-gray-500">{post.id}</td>
-                            <td className="px-4 py-3 text-gray-800">{post.title}</td>
-                            <td className="px-4 py-3 text-gray-500">{post.author}</td>
-                            <td className="px-4 py-3 text-gray-500">{post.date}</td>
-                        </tr>
-                    ))
-                ) */}
                 {lists.length > 0 ? (lists.map((list) => (
                     <tr
                         key={list.id}

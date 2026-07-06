@@ -1,8 +1,8 @@
 import { Link, NavLink } from 'react-router';
-import { FaEnvelope, FaHome, FaBars, FaTimes, FaIdCard, FaCalendar} from 'react-icons/fa';
+import { FaEnvelope, FaHome, FaBars, FaTimes, FaIdCard, FaCalendar, FaBlog} from 'react-icons/fa';
 import { useState } from 'react';
 import Button from './Button.jsx';
-import {FaPencil} from "react-icons/fa6";
+import {FaPencil, FaPhotoFilm, FaShop} from "react-icons/fa6";
 // import './Header.css';
 
 export function Header() {
@@ -10,9 +10,11 @@ export function Header() {
   const navItems = [
     { id: 'home', label: 'Home', icon: <FaHome />, to: '/' },
     { id: 'about', label: 'About', icon: <FaIdCard />, to: '/about' },
-    { id: 'calendar', label: 'Calendar', icon: <FaCalendar />, to: '/calendar' },
-    { id: 'contact', label: 'Contact', icon: <FaEnvelope />, to: '/contact' },
+    // { id: 'calendar', label: 'Calendar', icon: <FaCalendar />, to: '/calendar' },
+    // { id: 'contact', label: 'Contact', icon: <FaEnvelope />, to: '/contact' },
     { id: 'board', label: 'Board', icon: <FaPencil />, to: '/board' },
+    { id: 'shop', label: 'Shop', icon: <FaShop />, to: '/shop' },
+    { id: 'blog', label: 'Blog', icon: <FaBlog />, to: '/blog' },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +39,7 @@ export function Header() {
         <button className="md:hidden" onClick={toggleMenu}>
           <FaBars />
         </button>
-        <Button className="hidden md:block">강의 실습</Button>
+        <Button className="hidden md:block">한현미 포트폴리오</Button>
       </div>
 
       {/* Mobile Menu */}

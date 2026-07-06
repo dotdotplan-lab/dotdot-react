@@ -83,8 +83,8 @@ function Home() {
         <ViewToggle isGridView={isGridView} setIsGridView={setIsGridView} />
       </div>
       <div className="flex justify-self-end mb-6">
-        <Button onClick={handleCreateCanvas} loading={isLoadingCreate}>
-          등록하기
+        <Button color="blue" onClick={handleCreateCanvas} loading={isLoadingCreate}>
+          등록
         </Button>
       </div>
       {isLoading && <Loading />}
