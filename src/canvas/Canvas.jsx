@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import {CanvasList} from "../components/Canvas/CanvasList.jsx";
-import { ViewToggle } from '../layouts/ViewToggle.jsx';
+import {CanvasList} from "./components/CanvasList.jsx";
+import { ViewToggle } from './components/ViewToggle.jsx';
 import {
   createCanvas,
   deleteCanvas,
   getCanvases,
-} from '../api/canvas.js';
-import Loading from '../layouts/Loading.jsx';
-import Error from '../layouts/Error.jsx';
-import Button from '../layouts/Button.jsx';
+} from './api/canvas.js';
+import Loading from '../shared/layouts/Loading.jsx';
+import Error from '../shared/layouts/Error.jsx';
+import Button from '../shared/layouts/Button.jsx';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import SearchBar from '../layouts/SearchBar.jsx';
-import CategoryFilter from '../components/CategoryFilter.jsx';
+import SearchBar from '../shared/layouts/SearchBar.jsx';
+import CategoryFilter from '../shared/components/CategoryFilter.jsx';
 
 function Home() {
   const [filter, setFilter] = useState({

@@ -10,6 +10,7 @@ export function Header() {
   const navItems = [
     { id: 'home', label: 'Home', icon: <FaHome />, to: '/' },
     { id: 'about', label: 'About', icon: <FaIdCard />, to: '/about' },
+    { id: 'canvas', label: 'Canvas', icon: <FaCalendar />, to: '/canvas' },
     // { id: 'calendar', label: 'Calendar', icon: <FaCalendar />, to: '/calendar' },
     // { id: 'contact', label: 'Contact', icon: <FaEnvelope />, to: '/contact' },
     { id: 'board', label: 'Board', icon: <FaPencil />, to: '/board' },
@@ -39,7 +40,7 @@ export function Header() {
         <button className="md:hidden" onClick={toggleMenu}>
           <FaBars />
         </button>
-        <Button className="hidden md:block">한현미 포트폴리오</Button>
+        <Button className="hidden md:block">Portfolio Site</Button>
       </div>
 
       {/* Mobile Menu */}
