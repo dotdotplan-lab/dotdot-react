@@ -10,5 +10,6 @@ console.log('VITE_API_BASE_URL: ', import.meta.env.VITE_API_BASE_URL);
 // export const canvases = create(
 //   'https://json-server-vercel-rust-ten.vercel.app/canvases',
 // );
-export const canvases = create(`${import.meta.env.VITE_API_BASE_URL}/canvases/`,);
+export const canvases = create(`${import.meta.env.VITE_API_TEST_URL}/canvases/`,);
+export const board = create(`${import.meta.env.VITE_API_BASE_URL}/api/board`);
 // export const posts = create('http://localhost:8000/posts/');
