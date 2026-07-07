@@ -1,23 +1,19 @@
 import {useNavigate} from "react-router";
-import {useEffect, useState} from "react";
+import {useQuery} from "@tanstack/react-query";
 import Button from "../../shared/layouts/Button.jsx";
 import { formatDate } from '../../shared/utils/formatDate.js';
+import { getBoardList } from '../../shared/apis/boardApi.js';
 
 const Board = () => {
     const navigate = useNavigate();
-    const [lists, setLists] = useState([]);
 
-    // 함수 실행시 최초 한번 실행되는 것
-    useEffect(() => {
-        fetch('http://localhost:8080/api/board/list') // 비동기 함수, 기본 get 통신. 다운로드 받는 동안 그림먼저 그려!
-            .then((res) => res.json()) // promise : 응답이 오면 JS Object로 변경, ajax에서 acceptJson() 역할
-            .then((res) => {
-                //console.log(1, res);
-                setLists(res);
-                console.log(res);
-            });
-    }, []); // 빈 배열 넣으면 한번만 실행. // lists 넣으면 변경될때마다 무한루프됨.
+    const { data: lists = [], isLoading, isError } = useQuery({
+        queryKey: ['boardList'],
+        queryFn: getBoardList,
+    });
 
+    if (isLoading) return <div className="p-8 text-center text-gray-400">불러오는 중...</div>;
+    if (isError) return <div className="p-8 text-center text-red-400">목록을 불러오지 못했습니다.</div>;
 
     return (
     <div className="container mx-auto px-4 py-8">
