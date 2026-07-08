@@ -28,8 +28,8 @@ const router = createBrowserRouter([
             { path: "canvases/:id", element: <CanvasDetail /> },
             { path: "board", element: <Board /> },
             // { path: "board/:id", element: <BoardDetail /> },      // 상세보기 (신규)
-            { path: "save-form", element: <SaveForm /> },          // 등록
-            { path: "save-form/:id", element: <SaveForm /> },      // 수정 (같은 컴포넌트 재사용)
+            { path: "board/save", element: <SaveForm /> },          // 등록
+            { path: "board/update/:id", element: <SaveForm /> },      // 수정 (같은 컴포넌트 재사용)
             { path: "shop", element: <Shop /> },
             { path: "blog", element: <Blog /> },
         ],

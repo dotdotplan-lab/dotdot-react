@@ -19,7 +19,7 @@ const Board = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold text-gray-800">게시판</h1>
-          <Button  color="blue" onClick={() => navigate('/save-form')}>
+          <Button  color="blue" onClick={() => navigate('/board/save')}>
               등록
           </Button>
       </div>
@@ -41,7 +41,7 @@ const Board = () => {
                     <tr
                         key={list.id}
                         className="hover:bg-gray-50 cursor-pointer transition-colors"
-                        onClick={() => navigate(`/board/${list.id}`)}
+                        onClick={() => navigate(`/board/update/${list.id}`)}
                     >
                         <td className="px-4 py-3 text-gray-500">{list.id}</td>
                         <td className="px-4 py-3 text-gray-800">{list.title}</td>
