@@ -41,7 +41,7 @@ const Board = () => {
                     <tr
                         key={list.id}
                         className="hover:bg-gray-50 cursor-pointer transition-colors"
-                        onClick={() => navigate(`/board/update/${list.id}`)}
+                        onClick={() => navigate(`/board/${list.id}`)}
                     >
                         <td className="px-4 py-3 text-gray-500">{list.id}</td>
                         <td className="px-4 py-3 text-gray-800">{list.title}</td>

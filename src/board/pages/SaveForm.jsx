@@ -49,8 +49,9 @@ function SaveForm() {
             navigate("/board");
         },
         onError: (err) => {
-            console.log("저장 실패:", err);
-            alert("저장 중 오류가 발생했습니다.");
+            const message = err.response?.data?.message ?? "저장 중 오류가 발생했습니다.";
+            console.error("저장 실패:", err);
+            alert(message);
         },
     });
 
@@ -164,6 +165,22 @@ function SaveForm() {
                             "undo redo | bold italic underline | " +
                             "alignleft aligncenter alignright | " +
                             "bullist numlist | link image table | code fullscreen",
+/*                        images_upload_handler: (blobInfo) => {
+                            return new Promise((resolve, reject) => {
+                                const formData = new FormData();
+                                formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+                                board.post('/upload', formData, {
+                                    headers: { 'Content-Type': 'multipart/form-data' },
+                                })
+                                    .then((res) => {
+                                        resolve(res.data.url); // 백엔드가 반환하는 이미지 URL
+                                    })
+                                    .catch((err) => {
+                                        reject('이미지 업로드 실패: ' + err.message);
+                                    });
+                            });
+                        },*/
                     }}
                 />
             </div>
