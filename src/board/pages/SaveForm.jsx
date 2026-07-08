@@ -5,6 +5,7 @@ import Button from "../../shared/layouts/Button.jsx";
 import {useNavigate, useParams} from "react-router";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {createBoard, deleteBoard, getBoardDetail, updateBoard} from "../../shared/apis/boardApi.js";
+import { board } from "../../shared/apis/http.js";
 
 function SaveForm() {
     const editorRef = useRef(null);
@@ -165,7 +166,7 @@ function SaveForm() {
                             "undo redo | bold italic underline | " +
                             "alignleft aligncenter alignright | " +
                             "bullist numlist | link image table | code fullscreen",
-/*                        images_upload_handler: (blobInfo) => {
+                        images_upload_handler: (blobInfo) => {
                             return new Promise((resolve, reject) => {
                                 const formData = new FormData();
                                 formData.append('file', blobInfo.blob(), blobInfo.filename());
@@ -174,13 +175,19 @@ function SaveForm() {
                                     headers: { 'Content-Type': 'multipart/form-data' },
                                 })
                                     .then((res) => {
-                                        resolve(res.data.url); // 백엔드가 반환하는 이미지 URL
+                                        const url = res.data?.data?.url;
+                                        if (!url) {
+                                            reject('업로드 응답에 URL이 없습니다.');
+                                            return;
+                                        }
+                                        resolve(url); // 백엔드가 반환하는 이미지 URL
                                     })
                                     .catch((err) => {
-                                        reject('이미지 업로드 실패: ' + err.message);
+                                        console.error('업로드 실패:', err);
+                                        reject('이미지 업로드 실패: ' + (err.response?.data?.message ?? err.message));
                                     });
                             });
-                        },*/
+                        },
                     }}
                 />
             </div>
