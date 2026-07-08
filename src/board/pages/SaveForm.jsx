@@ -1,4 +1,4 @@
-import React, {useEffect, useRef } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { useForm } from "react-hook-form";
 import { Editor } from "@tinymce/tinymce-react";
 import Button from "../../shared/layouts/Button.jsx";
@@ -12,6 +12,7 @@ function SaveForm() {
     const queryClient = useQueryClient();
     const { id } = useParams();
     const isEditMode = Boolean(id);
+    const [isEditorReady, setIsEditorReady] = useState(false);
 
     const {
         register,
@@ -32,11 +33,12 @@ function SaveForm() {
     useEffect(() => {
         if (!detail) return;
         setValue("title", detail.title);
+        setValue("createdBy", detail.createdBy);
         setValue("createdAt", detail.createdAt);
         if (editorRef.current) {
             editorRef.current.setContent(detail.content ?? "");
         }
-    }, [detail, setValue]);
+    }, [detail, isEditorReady, setValue]);
 
     // 등록/수정 mutation
     const saveMutation = useMutation({
@@ -125,11 +127,11 @@ function SaveForm() {
                             type="text"
                             placeholder="작성자"
                             className="w-full border border-gray-300 rounded-md px-3 py-2"
-                            {...register("writer", { required: "작성자를 입력해주세요." })}
+                            {...register("createdBy", { required: "작성자를 입력해주세요." })}
                         />
-                        {errors.writer && (
+                        {errors.createdBy && (
                             <p className="text-red-500 text-sm mt-1">
-                                {errors.writer.message}
+                                {errors.createdBy.message}
                             </p>
                         )}
                     </div>
@@ -138,8 +140,11 @@ function SaveForm() {
                 {/* 에디터 영역 */}
                 <Editor
                     apiKey="no-api-key" // 테스트용 (운영 시 Tiny Cloud API key 사용 권장)
-                    onInit={(evt, editor) => (editorRef.current = editor)}
-                    initialValue="<p>여기에 글을 입력하세요...</p>"
+                    onInit={(evt, editor) => {
+                        editorRef.current = editor;
+                        setIsEditorReady(true);
+                    }}
+                    // initialValue="<p>여기에 글을 입력하세요...</p>"
                     init={{
                         license_key: 'gpl',
                         height: 400,
