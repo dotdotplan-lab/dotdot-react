@@ -11,9 +11,10 @@ import Error from '../shared/layouts/Error.jsx';
 import Button from '../shared/layouts/Button.jsx';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import SearchBar from '../shared/layouts/SearchBar.jsx';
-import CategoryFilter from '../shared/components/CategoryFilter.jsx';
+import CategoryFilter from './CategoryFilter.jsx';
+import Main from "./Main.jsx";
 
-function Home() {
+function Canvas() {
   const [filter, setFilter] = useState({
     searchText: undefined,
     category: undefined,
@@ -68,7 +69,7 @@ function Home() {
   };
 
   return (
-    <>
+    <Main>
       <div className="mb-6 flex flex-col sm:flex-row items-center justify-between">
         <div className="flex gap-2 flex-col w-full sm:flex-row  mb-4 sm:mb-0">
           <SearchBar
@@ -97,8 +98,8 @@ function Home() {
           onDeleteItem={handleDeleteItem}
         />
       )}
-    </>
+    </Main>
   );
 }
 
-export default Home;
+export default Canvas;
