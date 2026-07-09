@@ -21,7 +21,7 @@ function SaveForm() {
         setValue,
         formState: { errors, isSubmitting },
     } = useForm({
-        defaultValue: { title: "", createBy: "" },
+        defaultValue: { title: "", createdBy: "" },
     });
 
     // 수정 모드: 기존 데이터 조회
@@ -74,7 +74,7 @@ function SaveForm() {
       const content = editorRef.current ? editorRef.current.getContent() : "";
       saveMutation.mutate({
          title: formData.title,
-         createBy: formData.createBy,
+         createdBy: formData.createdBy,
          content: content,
       });
     };
@@ -168,6 +168,14 @@ function SaveForm() {
                             "bullist numlist | link image table | code fullscreen",
                         images_upload_handler: (blobInfo) => {
                             return new Promise((resolve, reject) => {
+                                const file = blobInfo.blob();
+                                const maxSize = 10 * 1024 * 1024; // 10MB
+
+                                if (file.size > maxSize) {
+                                    reject('이미지 용량은 10MB를 초과할 수 없습니다.');
+                                    return;
+                                }
+
                                 const formData = new FormData();
                                 formData.append('file', blobInfo.blob(), blobInfo.filename());
 
