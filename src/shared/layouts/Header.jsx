@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router';
 import { FaEnvelope, FaHome, FaBars, FaTimes, FaIdCard, FaCalendar, FaBlog} from 'react-icons/fa';
 import { useState } from 'react';
 import Button from './Button.jsx';
-import {FaPencil, FaPhotoFilm, FaShop} from "react-icons/fa6";
+import {FaPencil, FaPerson, FaPhotoFilm, FaShop} from "react-icons/fa6";
 // import './Header.css';
 
 export function Header() {
@@ -38,7 +38,7 @@ export function Header() {
         <button className="md:hidden" onClick={toggleMenu}>
           <FaBars />
         </button>
-        <Button className="hidden md:block">Portfolio Site</Button>
+        <Button className="hidden md:block"><FaPerson /></Button>
       </div>
 
       {/* Mobile Menu */}

@@ -12,7 +12,7 @@ import Button from '../shared/layouts/Button.jsx';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import SearchBar from '../shared/layouts/SearchBar.jsx';
 import CategoryFilter from './CategoryFilter.jsx';
-import Main from "./Main.jsx";
+import MainSpace from "../shared/layouts/MainSpace.jsx";
 
 function Canvas() {
   const [filter, setFilter] = useState({
@@ -69,7 +69,7 @@ function Canvas() {
   };
 
   return (
-    <Main>
+    <MainSpace>
       <div className="mb-6 flex flex-col sm:flex-row items-center justify-between">
         <div className="flex gap-2 flex-col w-full sm:flex-row  mb-4 sm:mb-0">
           <SearchBar
@@ -98,7 +98,7 @@ function Canvas() {
           onDeleteItem={handleDeleteItem}
         />
       )}
-    </Main>
+    </MainSpace>
   );
 }
 

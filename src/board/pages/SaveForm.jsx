@@ -111,14 +111,14 @@ function SaveForm() {
             <hr className="border-gray-300 mb-6" />
 
             {/* 제목 / 작성자 입력 */}
-            <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 mb-6">
+            <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-6 mb-6">
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_240px] gap-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">제목</label>
                         <input
                             type="text"
                             placeholder="제목을 입력하세요"
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             {...register("title", { required: "제목을 입력해주세요." })}
                         />
                         {errors.title && (
@@ -131,7 +131,7 @@ function SaveForm() {
                         <input
                             type="text"
                             placeholder="작성자"
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                             {...register("createdBy", { required: "작성자를 입력해주세요." })}
                         />
                         {errors.createdBy && (
@@ -142,7 +142,7 @@ function SaveForm() {
             </div>
 
             {/* 에디터 영역 */}
-            <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+            <div className="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
                 <Editor
                     apiKey="no-api-key"
                     onInit={(evt, editor) => {
