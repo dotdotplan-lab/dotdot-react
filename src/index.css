@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+/* TinyMCE 표 스타일(읽기 모드 dangerouslySetInnerHTML에서 보이는 스타일) */
+.prose table {
+    border-collapse: collapse;
+    table-layout: auto;
+}
+.prose table td,
+.prose table th {
+    border: 1px solid #d1d5db;
+    padding: 8px 12px;
+}
+.prose table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    width: auto;
+    white-space: normal;
+}

@@ -85,7 +85,18 @@ function SaveForm() {
     });
 
     const onSubmit = (formData) => {
-      const content = editorRef.current ? editorRef.current.getContent() : "";
+      let content = editorRef.current ? editorRef.current.getContent() : "";
+
+        // 저장시 DB에 들어가는 HTML에서 width 제거
+        content = content.replace(/<colgroup>[\s\S]*?<\/colgroup>/gi, '');
+        content = content.replace(/<table([^>]*?)style="([^"]*?)"([^>]*?)>/gi,
+            (match, before, style, after) => {
+                const newStyle = style.replace(/width:[^;]*;?/gi, '').trim();
+                return newStyle
+                    ? `<table${before}style="${newStyle}"${after}>`
+                    : `<table${before}${after}>`;
+            }
+        );
       saveMutation.mutate({
          title: formData.title,
          createdBy: formData.createdBy,
@@ -145,7 +156,7 @@ function SaveForm() {
                             type="text"
                             placeholder="제목을 입력하세요"
                             className="w-full border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            disabled={!isEditMode}  // 읽기 모드에서 비활성화
+                            disabled={!isEditing}  // 읽기 모드에서 비활성화
                             {...register("title", { required: "제목을 입력해주세요." })}
                         />
                         {errors.title && (
@@ -159,7 +170,7 @@ function SaveForm() {
                             type="text"
                             placeholder="작성자"
                             className="w-full border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            disabled={!isEditMode}  // 읽기 모드에서 비활성화
+                            disabled={!isEditing}  // 읽기 모드에서 비활성화
                             {...register("createdBy", { required: "작성자를 입력해주세요." })}
                         />
                         {errors.createdBy && (
@@ -187,6 +198,14 @@ function SaveForm() {
                             license_key: 'gpl',
                             height: 500,
                             menubar: true,
+                            table_resize_bars: false,        // 리사이즈 바 제거
+                            table_default_styles: {},        // 기본 width 스타일 제거
+                            table_col_resizing: false,       // 컬럼 리사이즈 비활성화
+                            content_style:                   // 에디터 안에서 입력할 때 보이는 스타일
+                            `
+                                table { border-collapse: collapse; table-layout: auto; }
+                                td, th { border: 1px solid #d1d5db; padding: 8px 12px; }
+                            `,
                             plugins: [
                                 "advlist", "autolink", "lists", "link",
                                 "image", "table", "code", "fullscreen", "wordcount",
