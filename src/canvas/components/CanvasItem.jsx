@@ -1,7 +1,8 @@
 import { Link } from 'react-router';
 import { FaTrash } from 'react-icons/fa';
+import {formatDate} from "../../shared/utils/formatDate.js";
 
-export function CanvasItem({ id, title, lastModified, category, onDelete }) {
+export function CanvasItem({ id, title, updatedAt, category, onDelete }) {
   return (
     <Link
       className="relative bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
@@ -11,7 +12,7 @@ export function CanvasItem({ id, title, lastModified, category, onDelete }) {
         <div>
           <h2 className="text-2xl font-bold mb-2 text-gray-800">{title}</h2>
           <p className="text-sm text-gray-600 mb-4">
-            최근 수정일: {lastModified}
+            수정일: {formatDate(updatedAt)}
           </p>
           <span className="inline-block px-3 py-1 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
             {category}

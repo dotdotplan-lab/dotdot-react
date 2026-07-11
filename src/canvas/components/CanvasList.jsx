@@ -19,7 +19,7 @@ export function CanvasList({ filteredData, searchText, isGridView, onDeleteItem 
           key={item.id}
           id={item.id}
           title={item.title}
-          lastModified={item.lastModified}
+          updatedAt={item.updatedAt}
           category={item.category}
           onDelete={e => {
             e.preventDefault(); // 기본 동작을 막는 메서드
