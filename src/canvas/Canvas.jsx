@@ -5,7 +5,7 @@ import {
   createCanvas,
   deleteCanvas,
   getCanvases,
-} from './api/canvas.js';
+} from './api/canvasApi.js';
 import Loading from '../shared/layouts/Loading.jsx';
 import Error from '../shared/layouts/Error.jsx';
 import Button from '../shared/layouts/Button.jsx';

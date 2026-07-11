@@ -2,7 +2,7 @@ import CanvasTitle from '../components/CanvasTitle.jsx';
 import LeanCanvas from '../components/LeanCanvas.jsx';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { getCanvasById, updateCanvas, updateTitle } from '../api/canvas.js';
+import { getCanvasById, updateCanvas, updateTitle } from '../api/canvasApi.js';
 
 function CanvasDetail() {
   const { id } = useParams(); // URL에서 param을 가져옴.

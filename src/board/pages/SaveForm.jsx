@@ -4,8 +4,8 @@ import { Editor } from "@tinymce/tinymce-react";
 import Button from "../../shared/layouts/Button.jsx";
 import {useNavigate, useParams} from "react-router";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {createBoard, deleteBoard, getBoardDetail, updateBoard} from "../../shared/apis/boardApi.js";
-import { board } from "../../shared/apis/http.js";
+import {createBoard, deleteBoard, getBoardDetail, updateBoard} from "../api/boardApi.js";
+import { board } from "../../shared/api/http.js";
 
 function SaveForm() {
     const editorRef = useRef(null);
