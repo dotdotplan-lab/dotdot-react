@@ -4,7 +4,7 @@ import { ViewToggle } from './components/ViewToggle.jsx';
 import {
   createCanvas,
   deleteCanvas,
-  getCanvases,
+  getCanvasList,
 } from './api/canvasApi.js';
 import Loading from '../shared/layouts/Loading.jsx';
 import Error from '../shared/layouts/Error.jsx';
@@ -28,10 +28,9 @@ function Canvas() {
 
   // 1] 데이터 조회
   const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ['canvases', filter.searchText, filter.category],
+    queryKey: ['canvasList', filter.searchText, filter.category],
     queryFn: () => {
-      console.log('fetching data');
-      return getCanvases({
+      return getCanvasList({
         title_like: filter.searchText,
         category: filter.category
       });
@@ -44,14 +43,14 @@ function Canvas() {
   // 2] 등록
   const { mutate: createNewCanvas, isLoading: isLoadingCreate } = useMutation({
     mutationFn: createCanvas,
-    onSuccess: () => queryClient.invalidateQueries(['canvases']),
+    onSuccess: () => queryClient.invalidateQueries(['canvasList']),
     onError: err => alert(err.message),
   });
 
   // 3] 삭제
   const { mutate: deleteCanvasMutation } = useMutation({
     mutationFn: deleteCanvas,
-    onSuccess: () => queryClient.invalidateQueries(['canvases']),
+    onSuccess: () => queryClient.invalidateQueries(['canvasList']),
     onError: err => alert(err.message),
   });
 
@@ -65,7 +64,10 @@ function Canvas() {
 
   // 네트워크 통신 관리 함수 - 신규
   const handleCreateCanvas = async () => {
-    createNewCanvas();
+    createNewCanvas({
+      title: '새로운 린 캔버스',
+      category: '신규',
+    });
   };
 
   return (
