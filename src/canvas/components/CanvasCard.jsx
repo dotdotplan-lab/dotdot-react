@@ -1,23 +1,40 @@
-import {v4 as uuidv4} from 'uuid';
 import { FaPlus } from 'react-icons/fa';
 import Note from './Note.jsx';
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {createCanvasNote} from "../api/canvasApi.js";
 
-function CanvasCard({ title, isSubTitle = false, notes = [], onNotesChange }) {
+function CanvasCard({ canvasId, sectionType, title, isSubTitle = false, notes = [] }) {
+  const queryClient = useQueryClient();
+  const invalidateDetail = () => queryClient.invalidateQueries({
+    queryKey: ['canvasDetail', canvasId]
+  })
+
+  const { mutate: addNote } = useMutation({
+    mutationFn: createCanvasNote,
+    onSuccess: invalidateDetail,
+    onError: (err) => alert(err.message),
+  });
+
+  const { mutate: modifyNote } = useMutation({
+    mutationFn: createCanvasNote,
+    onSuccess: invalidateDetail,
+    onError: (err) => alert(err.message),
+  });
+
+  const { mutate: removeNote } = useMutation({
+    mutationFn: createCanvasNote,
+    onSuccess: invalidateDetail,
+    onError: (err) => alert(err.message),
+  });
+
   const handleAddNote = () => {
-    const newNote = {
-      id: uuidv4(),
-      content: '',
-      color: '',
-    }
-    onNotesChange([...notes, newNote]);
+    addNote({ canvasId, sectionType, content: '', color: '' });
   };
-  const handleRemoveNote = id => {
-    onNotesChange(notes.filter((note) => note.id !== id));
+  const handleRemoveNote = (id) => {
+    removeNote(id);
   };
   const handleUpdateNote = (id, content, color) => {
-    onNotesChange(
-      notes.map(note => note.id === id ? {...note, content, color} : note),
-    );
+    modifyNote({ id, payload: { content, color }});
   };
 
   return (
