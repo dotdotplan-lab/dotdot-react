@@ -1,5 +1,7 @@
-import React, {forwardRef, useImperativeHandle, useRef} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react';
 import {Editor} from "@tinymce/tinymce-react";
+import {useMutation} from "@tanstack/react-query";
+import {createBoard, updateBoard} from "../../../board/api/boardApi.js";
 
 const CommonEditor = forwardRef(function CommonEditor(props, ref) {
     // ref : 부모에서 넘겨준 ref
@@ -9,6 +11,18 @@ const CommonEditor = forwardRef(function CommonEditor(props, ref) {
         getContent: () => editorRef.current?.getContent() ?? "", // TinyMCE 인스턴스의 getContent가 실행됨.
         setContent: (html) => editorRef.current?.setContent(html ?? ""),
     }));
+
+    // isEditing 상태에 따른 tinyMCE Editor 옵션 변경.
+    useEffect(() => {
+        if (!editorRef.current) return;
+        if (props.isEditing) {
+            editorRef.current.mode.set('design'); // 편집모드
+            editorRef.current.ui.show(); // 툴바/메뉴 표시
+        } else {
+            editorRef.current.mode.set('readonly'); // 읽기 모드
+            editorRef.current.ui.hide(); // 툴바/메뉴 숨김
+        }
+    }, [props.isEditing]);
 
     return (
         <Editor

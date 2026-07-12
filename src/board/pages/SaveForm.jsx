@@ -43,18 +43,6 @@ function SaveForm() {
         }
     }, [detail, isEditorReady, setValue]);
 
-    // isEditing 상태에 따른 tinyMCE Editor 옵션 변경.
-    useEffect(() => {
-        if (!editorRef.current) return;
-        if (isEditing) {
-            editorRef.current.mode.set('design'); // 편집모드
-            editorRef.current.ui.show(); // 툴바/메뉴 표시
-        } else {
-            editorRef.current.mode.set('readonly'); // 읽기 모드
-            editorRef.current.ui.hide(); // 툴바/메뉴 숨김
-        }
-    }, [isEditing]);
-
     // 등록/수정 mutation
     const saveMutation = useMutation({
         mutationFn: (payload) => isEditMode ? updateBoard({ id, payload }) : createBoard(payload),
@@ -183,7 +171,7 @@ function SaveForm() {
             {/* 에디터 영역 */}
             <div className="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
                 {isEditing ? (
-                    <CommonEditor ref={editorRef} />
+                    <CommonEditor ref={editorRef} isEditing={{isEditing}}/>
                 ) : (
                     // 읽기 모드 - 에디터 HTML 그대로 출력
                     <div
