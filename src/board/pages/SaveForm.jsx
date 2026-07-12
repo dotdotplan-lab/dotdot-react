@@ -13,7 +13,6 @@ function SaveForm() {
     const queryClient = useQueryClient();
     const { id } = useParams();
     const isEditMode = Boolean(id);
-    const [isEditorReady, setIsEditorReady] = useState(false);
     const [isEditing, setIsEditing] = useState(!isEditMode); // 등록 모드면 처음부터 Editor 보이게.
 
     const {
@@ -41,7 +40,7 @@ function SaveForm() {
         if (editorRef.current) {
             editorRef.current.setContent(detail.content ?? "");
         }
-    }, [detail, isEditorReady, setValue]);
+    }, [detail, setValue]);
 
     // 등록/수정 mutation
     const saveMutation = useMutation({
@@ -173,7 +172,7 @@ function SaveForm() {
                 {isEditing ? (
                     <CommonEditor
                         ref={editorRef}
-                        isEditing={{isEditing}}
+                        isEditing={isEditing}
                         initialContent={detail?.content}
                         uploadApi={board}
                     />

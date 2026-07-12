@@ -1,10 +1,11 @@
-import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
 import {Editor} from "@tinymce/tinymce-react";
-import {useMutation} from "@tanstack/react-query";
-import {createBoard, updateBoard} from "../../../board/api/boardApi.js";
 
-const CommonEditor = forwardRef(function CommonEditor({ isEditing, initialContent, uploadApi }, ref) {
+const CommonEditor = forwardRef(function CommonEditor(
+    { isEditing, initialContent, uploadApi }, ref
+) {
     const editorRef = useRef(null);
+    const [isReady, setIsReady] = useState(false);
 
     useImperativeHandle(ref, () => ({
         // TinyMCE 인스턴스의 getContent가 실행됨.
@@ -15,14 +16,22 @@ const CommonEditor = forwardRef(function CommonEditor({ isEditing, initialConten
     // isEditing 상태에 따른 tinyMCE Editor 옵션 변경.
     useEffect(() => {
         if (!editorRef.current) return;
-        if (props.isEditing) {
+        if (isEditing) {
             editorRef.current.mode.set('design'); // 편집모드
             editorRef.current.ui.show(); // 툴바/메뉴 표시
         } else {
             editorRef.current.mode.set('readonly'); // 읽기 모드
             editorRef.current.ui.hide(); // 툴바/메뉴 숨김
         }
-    }, [props.isEditing]);
+    }, [isEditing]);
+
+    useEffect(() => {
+        if (!isReady) return;
+        if (!editorRef.current) return;
+        if (initialContent) {
+            editorRef.current.setContent(initialContent);
+        }
+    }, [isReady, initialContent]);
 
     const handleImageUpload = (blobInfo) => {
         return new Promise((resolve, reject) => {
@@ -60,9 +69,7 @@ const CommonEditor = forwardRef(function CommonEditor({ isEditing, initialConten
             apiKey="no-api-key"
             onInit={(evt, editor) => {
                 editorRef.current = editor;
-                if (initialContent) {
-                    editor.setContent(initialContent);
-                }
+                setIsReady(true);
             }}
             init={{
                 license_key: "gpl",
