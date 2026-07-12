@@ -5,14 +5,14 @@ function LeanCanvas({ canvas, onCanvasChange }) {
   const getNotes = (sectionType) => canvas.notes?.filter((note) => note.sectionType === sectionType) ?? [];
 
   const handleNotesChange = (sectionType, updatedNotes) => {
-    const others = canvas.notes?.filter((note) => note.sectionType === sectionType) ?? [];
+    const others = canvas.notes?.filter((note) => note.sectionType !== sectionType) ?? [];
     const newNotes = updatedNotes.map((note) => ({
       ...note, sectionType,
     }));
 
     onCanvasChange({
       ...canvas,
-      notes: [...others, newNotes ],
+      notes: [...others, ...newNotes ],
     });
   };
 
