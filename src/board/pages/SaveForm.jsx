@@ -171,7 +171,12 @@ function SaveForm() {
             {/* 에디터 영역 */}
             <div className="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
                 {isEditing ? (
-                    <CommonEditor ref={editorRef} isEditing={{isEditing}}/>
+                    <CommonEditor
+                        ref={editorRef}
+                        isEditing={{isEditing}}
+                        initialContent={detail?.content}
+                        uploadApi={board}
+                    />
                 ) : (
                     // 읽기 모드 - 에디터 HTML 그대로 출력
                     <div

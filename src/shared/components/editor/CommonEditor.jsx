@@ -3,12 +3,12 @@ import {Editor} from "@tinymce/tinymce-react";
 import {useMutation} from "@tanstack/react-query";
 import {createBoard, updateBoard} from "../../../board/api/boardApi.js";
 
-const CommonEditor = forwardRef(function CommonEditor(props, ref) {
-    // ref : 부모에서 넘겨준 ref
+const CommonEditor = forwardRef(function CommonEditor({ isEditing, initialContent, uploadApi }, ref) {
     const editorRef = useRef(null);
 
     useImperativeHandle(ref, () => ({
-        getContent: () => editorRef.current?.getContent() ?? "", // TinyMCE 인스턴스의 getContent가 실행됨.
+        // TinyMCE 인스턴스의 getContent가 실행됨.
+        getContent: () => editorRef.current?.getContent() ?? "",
         setContent: (html) => editorRef.current?.setContent(html ?? ""),
     }));
 
@@ -24,11 +24,45 @@ const CommonEditor = forwardRef(function CommonEditor(props, ref) {
         }
     }, [props.isEditing]);
 
+    const handleImageUpload = (blobInfo) => {
+        return new Promise((resolve, reject) => {
+            const file = blobInfo.blob();
+            const maxSize = 10 * 1024 * 1024;
+
+            if (file.size > maxSize) {
+                reject('이미지 용량은 10MB를 초과할 수 없습니다.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file, blobInfo.filename());
+
+            uploadApi.post('/upload', formData, {
+                headers: {'Content-Type': 'multipart/form-data'},
+            })
+                .then((res) => {
+                    const url = res.data?.data?.url;
+                    if (!url) {
+                        reject('업로드 응답에 URL이 없습니다.');
+                        return;
+                    }
+                    resolve(url);
+                })
+                .catch((err) => {
+                    console.error('업로드 실패:', err);
+                    reject('이미지 업로드 실패: ' + (err.response?.data?.message ?? err.message));
+                });
+        });
+    };
+
     return (
         <Editor
             apiKey="no-api-key"
             onInit={(evt, editor) => {
                 editorRef.current = editor;
+                if (initialContent) {
+                    editor.setContent(initialContent);
+                }
             }}
             init={{
                 license_key: "gpl",
@@ -45,37 +79,8 @@ const CommonEditor = forwardRef(function CommonEditor(props, ref) {
                 toolbar: [
                     "undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image table | code fullscreen",
                 ],
-                readonly: false,
-                images_upload_handler: (blobInfo) => {
-                    return new Promise((resolve, reject) => {
-                        const file = blobInfo.blob();
-                        const maxSize = 10 * 1024 * 1024;
-
-                        if (file.size > maxSize) {
-                            reject('이미지 용량은 10MB를 초과할 수 없습니다.');
-                            return;
-                        }
-
-                        const formData = new FormData();
-                        formData.append('file', file, blobInfo.filename());
-
-                        board.post('/upload', formData, {
-                            headers: { 'Content-Type': 'multipart/form-data' },
-                        })
-                            .then((res) => {
-                                const url = res.data?.data?.url;
-                                if (!url) {
-                                    reject('업로드 응답에 URL이 없습니다.');
-                                    return;
-                                }
-                                resolve(url);
-                            })
-                            .catch((err) => {
-                                console.error('업로드 실패:', err);
-                                reject('이미지 업로드 실패: ' + (err.response?.data?.message ?? err.message));
-                            });
-                    });
-                },
+                readonly: !isEditing,
+                images_upload_handler: handleImageUpload,
             }}
         />
     );
