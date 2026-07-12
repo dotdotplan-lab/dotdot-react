@@ -1,7 +1,7 @@
 import { canvas } from '../../shared/api/http.js';
 
-export const getCanvasList = (params) => canvas.get('/canvaslist', { params }).then((res) => res.data.data);
-export const getCanvasDetail = (id) => canvas.get(`/${id}`).then((res) => res.data.data);
+export const getCanvasList = (params) => canvas.get('/canvaslist', { params }).then((res) => res.data.data); // 캔버스 목록
+export const getCanvasDetail = (id) => canvas.get(`/${id}`).then((res) => res.data.data); // 캔버스 상세, 노트 정보 가져옴.
 export const createCanvas = (payload) => canvas.post('/saveCanvas', payload).then((res) => res.data.data);
 export const updateCanvas = ({ id, payload }) => canvas.put(`/${id}`, payload).then((res) => res.data.data);
 export const deleteCanvas = (id) => canvas.delete(`/${id}`).then((res) => res.data.data);

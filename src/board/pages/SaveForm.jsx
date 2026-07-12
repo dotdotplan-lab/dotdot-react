@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from "react";
 import { useForm } from "react-hook-form";
-import { Editor } from "@tinymce/tinymce-react";
 import Button from "../../shared/layouts/Button.jsx";
 import {useNavigate, useParams} from "react-router";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {createBoard, deleteBoard, getBoardDetail, updateBoard} from "../api/boardApi.js";
 import { board } from "../../shared/api/http.js";
+import CommonEditor from "../../shared/components/editor/CommonEditor.jsx";
 
 function SaveForm() {
     const editorRef = useRef(null);
@@ -183,70 +183,7 @@ function SaveForm() {
             {/* 에디터 영역 */}
             <div className="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
                 {isEditing ? (
-
-                    <Editor
-                        apiKey="no-api-key"
-                        onInit={(evt, editor) => {
-                            editorRef.current = editor;
-                            setIsEditorReady(true);
-                            // 수정 모드 진입 시 기존 내용 셋팅
-                            if (detail?.content) {
-                                editor.setContent(detail.content);
-                            }
-                        }}
-                        init={{
-                            license_key: 'gpl',
-                            height: 500,
-                            menubar: true,
-                            table_resize_bars: false,        // 리사이즈 바 제거
-                            table_default_styles: {},        // 기본 width 스타일 제거
-                            table_col_resizing: false,       // 컬럼 리사이즈 비활성화
-                            content_style:                   // 에디터 안에서 입력할 때 보이는 스타일
-                            `
-                                table { border-collapse: collapse; table-layout: auto; }
-                                td, th { border: 1px solid #d1d5db; padding: 8px 12px; }
-                            `,
-                            plugins: [
-                                "advlist", "autolink", "lists", "link",
-                                "image", "table", "code", "fullscreen", "wordcount",
-                            ],
-                            toolbar: [
-                                "undo redo | bold italic underline | " +
-                                "alignleft aligncenter alignright | " +
-                                "bullist numlist | link image table | code fullscreen" ],
-                            readonly: !isEditing,
-                            images_upload_handler: (blobInfo) => {
-                                return new Promise((resolve, reject) => {
-                                    const file = blobInfo.blob();
-                                    const maxSize = 10 * 1024 * 1024;
-
-                                    if (file.size > maxSize) {
-                                        reject('이미지 용량은 10MB를 초과할 수 없습니다.');
-                                        return;
-                                    }
-
-                                    const formData = new FormData();
-                                    formData.append('file', file, blobInfo.filename());
-
-                                    board.post('/upload', formData, {
-                                        headers: { 'Content-Type': 'multipart/form-data' },
-                                    })
-                                        .then((res) => {
-                                            const url = res.data?.data?.url;
-                                            if (!url) {
-                                                reject('업로드 응답에 URL이 없습니다.');
-                                                return;
-                                            }
-                                            resolve(url);
-                                        })
-                                        .catch((err) => {
-                                            console.error('업로드 실패:', err);
-                                            reject('이미지 업로드 실패: ' + (err.response?.data?.message ?? err.message));
-                                        });
-                                });
-                            },
-                        }}
-                    />
+                    <CommonEditor ref={editorRef} />
                 ) : (
                     // 읽기 모드 - 에디터 HTML 그대로 출력
                     <div
