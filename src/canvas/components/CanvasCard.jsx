@@ -1,7 +1,7 @@
 import { FaPlus } from 'react-icons/fa';
 import Note from './Note.jsx';
 import {useMutation, useQueryClient} from "@tanstack/react-query";
-import {createCanvasNote} from "../api/canvasApi.js";
+import {createCanvasNote, deleteCanvasNote, updateCanvasNote} from "../api/canvasApi.js";
 
 function CanvasCard({ canvasId, sectionType, title, isSubTitle = false, notes = [] }) {
   const queryClient = useQueryClient();
@@ -16,13 +16,13 @@ function CanvasCard({ canvasId, sectionType, title, isSubTitle = false, notes = 
   });
 
   const { mutate: modifyNote } = useMutation({
-    mutationFn: createCanvasNote,
+    mutationFn: updateCanvasNote,
     onSuccess: invalidateDetail,
     onError: (err) => alert(err.message),
   });
 
   const { mutate: removeNote } = useMutation({
-    mutationFn: createCanvasNote,
+    mutationFn: deleteCanvasNote,
     onSuccess: invalidateDetail,
     onError: (err) => alert(err.message),
   });

@@ -14,12 +14,10 @@ function CanvasDetail() {
     queryFn: () => getCanvasDetail(id),
   });
 
-  const { mutate: saveCanvas } = useMutation({
+  const { mutate: saveCanvasTitle } = useMutation({
     mutationFn: updateCanvas, // ({ id, payload }) 형태 그대로 넘김
-    onSuccess: (_, variables) => {
-      // 1. 상세 캐시를 즉시 새 값으로 갱신 (재요청 없이 화면 즉시 반영)
-      queryClient.setQueryData(['canvasDetail', id], variables.payload);
-      // 2. 목록 캐시도 무효화 -> 목록으로 돌아가면 최신 제목 보임
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['canvasDetail', id] });
       queryClient.invalidateQueries({ queryKey: ['canvasList'] });
     },
     onError: (err) => alert(err.message),
@@ -29,15 +27,11 @@ function CanvasDetail() {
     saveCanvas({ id, payload: { ...canvas, title } });
   };
 
-  const handleCanvasChange =  updatedCanvas => {
-    saveCanvas({ id, payload: updatedCanvas });
-  }
-
   return (
     <div>
       {/*{JSON.stringify(canvas)}*/}
       <CanvasTitle value={canvas?.title} onChange={handleTitleChange} />
-      {canvas && <LeanCanvas canvas={canvas} onCanvasChange={handleCanvasChange}/> }
+      {canvas && <LeanCanvas canvas={canvas} canvasId={id} /> }
     </div>
   );
 }
