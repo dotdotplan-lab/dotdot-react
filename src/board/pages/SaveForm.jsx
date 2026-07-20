@@ -152,12 +152,14 @@ function SaveForm() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">작성자</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">작성자(test로 고정)</label>
                         <input
                             type="text"
                             placeholder="작성자"
                             className="w-full border border-gray-500 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            disabled={!isEditing}  // 읽기 모드에서 비활성화
+                            disabled
+                            value="test"
+                            // disabled={!isEditing}  // 읽기 모드에서 비활성화
                             {...register("createdBy", { required: "작성자를 입력해주세요." })}
                         />
                         {errors.createdBy && (
