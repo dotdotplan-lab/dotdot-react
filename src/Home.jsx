@@ -12,12 +12,15 @@ function Home() {
       <MainSpace>
           <div className="max-h-screen flex items-center justify-center bg-white px-6">
             <div className="max-w-2xl text-center">
-              <p className="text-lg text-blue-500 font-bold mb-10 italic">
-                포트폴리오 시연용 웹사이트
+              <p className="text-2xl text-blue-500 font-bold">
+                포트폴리오 시연용 웹사이트(React)
+              </p>
+              <p className="text-sm text-gray-500 mb-10 underline italic">
+                포트폴리오 시연용 웹사이트 (Vue3) -> 준비중.
               </p>
               <hr className="text-gray-300" />
               <br />
-              <p className="text-2xl text-gray-700 font-bold tracking-widest uppercase mb-4">개발 주요 정보</p>
+              <p className="text-xl text-gray-700 font-bold tracking-widest uppercase mb-4">+ 개발 주요 정보 +</p>
               <p className="text-purple-700">통합 개발 환경(IDE) : IntelliJ</p>
 
               <div className="px-4 md:px-8 my-6">
