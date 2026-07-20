@@ -16,7 +16,7 @@ function Home() {
                 포트폴리오 시연용 웹사이트(React)
               </p>
               <p className="text-sm text-gray-500 mb-10 underline italic">
-                포트폴리오 시연용 웹사이트 (Vue3) -> 준비중.
+                포트폴리오 시연용 웹사이트 (Vue3) : 준비중.
               </p>
               <hr className="text-gray-300" />
               <br />
