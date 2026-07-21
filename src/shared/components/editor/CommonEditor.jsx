@@ -96,7 +96,7 @@ const CommonEditor = forwardRef(function CommonEditor(
                 `,
                 plugins: ["advlist", "autolink", "lists", "link", "image", "table", "code", "fullscreen", "wordcount"],
                 toolbar: [
-                    "undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image table | code fullscreen",
+                    "undo redo | bold italic underline | forecolor backcolor | fontsize | alignleft aligncenter alignright | bullist numlist | link image table | code fullscreen",
                 ],
                 readonly: !isEditing,
                 images_upload_handler: handleImageUpload,
