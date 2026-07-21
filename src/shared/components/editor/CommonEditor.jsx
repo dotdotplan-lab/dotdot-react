@@ -38,7 +38,16 @@ const CommonEditor = forwardRef(function CommonEditor(
             const file = blobInfo.blob();
             const maxSize = 10 * 1024 * 1024;
 
+            const notifyError = (message) => {
+                editorRef.current?.notificationManager.open({
+                    text: message,
+                    type: 'error',
+                    timeout: 4000,
+                });
+            };
+
             if (file.size > maxSize) {
+                notifyError('이미지 용량은 10MB를 초과할 수 없습니다.');
                 reject('이미지 용량은 10MB를 초과할 수 없습니다.');
                 return;
             }
@@ -52,14 +61,17 @@ const CommonEditor = forwardRef(function CommonEditor(
                 .then((res) => {
                     const url = res.data?.data?.url;
                     if (!url) {
+                        notifyError('업로드 응답에 URL이 없습니다.');
                         reject('업로드 응답에 URL이 없습니다.');
                         return;
                     }
                     resolve(url);
                 })
                 .catch((err) => {
+                    const message = '이미지 업로드 실패: ' + (err.response?.data?.message ?? err.message);
                     console.error('업로드 실패:', err);
-                    reject('이미지 업로드 실패: ' + (err.response?.data?.message ?? err.message));
+                    notifyError(message);
+                    reject(message);
                 });
         });
     };
