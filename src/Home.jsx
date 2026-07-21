@@ -3,9 +3,9 @@ import MainSpace from "./shared/layouts/MainSpace.jsx";
 function Home() {
 
   const infos = [
-    { id: 1, gubun: "Frontend", langs: "JavaScript", devenv: "React, Tailwind CSS, Zustand, React Query, TinyMCE, ad-grid", batch: "Vercel" },
-    { id: 2, gubun: "Backend", langs: "Java" , devenv: "Spring Boot, Mybatis, lombok, jUnit(Build: Gradle)", batch: "AWS EC2(Ubuntu), Docker, Docker Compose"},
-    { id: 3, gubun: "Database", langs: "SQL" , devenv: "MariaDB", batch: "(Backend 인프라 내 컨테이너로 구동)"},
+    { id: 1, gubun: "Frontend", langs: "JavaScript", devenv: "React, Tailwind CSS, Zustand, React Query, TinyMCE, ad-grid", batch: "Vercel", url: "https://youtu.be/LAQTHe-ciwc" },
+    { id: 2, gubun: "Backend", langs: "Java" , devenv: "Spring Boot, Mybatis, lombok, jUnit(Build: Gradle)", batch: "AWS EC2(Ubuntu), Docker, Docker Compose", url: "https://youtu.be/wZbT7MyvCKY"},
+    { id: 3, gubun: "Database", langs: "SQL" , devenv: "MariaDB", batch: "(Backend 인프라 내 컨테이너로 구동)", url: ""},
   ];
 
   return (
@@ -32,23 +32,37 @@ function Home() {
                         <th scope="col" className="px-4 py-3.5">언어</th>
                         <th scope="col" className="px-4 py-3.5">프레임워크 & 라이브러리</th>
                         <th scope="col" className="px-4 py-3.5">배포 & 인프라</th>
+                        <th scope="col" className="px-4 py-3.5">시연 화면</th>
                       </tr>
                       </thead>
 
                       <tbody className="text-sm divide-y divide-slate-200 text-left text-sm font-semibold">
-                      {infos.map((user) => (
-                        <tr key={user.id} className="divide-x divide-slate-200">
+                      {infos.map((info) => (
+                        <tr key={info.id} className="divide-x divide-slate-200">
                           <td className="px-4 py-4 font-medium text-slate-900 whitespace-nowrap">
-                            {user.gubun}
+                            {info.gubun}
                           </td>
                           <td className="px-4 py-4 text-slate-500">
-                            {user.langs}
+                            {info.langs}
                           </td>
                           <td className="px-4 py-4 text-slate-500">
-                            {user.devenv}
+                            {info.devenv}
                           </td>
                           <td className="px-4 py-4 text-slate-500">
-                            {user.batch}
+                            {info.batch}
+                          </td>
+                          <td className="px-4 py-4 text-slate-500">
+                            {info.url ? (
+                                <a href={info.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-500 underline hover:text-blue-700"
+                                  >
+                                  보러가기
+                                </a>
+                              ) : (
+                              <span className="text-gray-400">-</span>
+                              )}
                           </td>
                         </tr>
                       ))}
