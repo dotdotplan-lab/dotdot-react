@@ -73,7 +73,7 @@ function Canvas() {
   return (
     <MainSpace>
       <div className="mb-6 flex flex-col sm:flex-row items-center justify-between">
-        <div className="flex gap-2 flex-col w-full sm:flex-row  mb-4 sm:mb-0">
+        {/*<div className="flex gap-2 flex-col w-full sm:flex-row  mb-4 sm:mb-0">
           <SearchBar
             searchText={filter.searchText}
             onSearch={val => handleFilter('searchText', val)}
@@ -82,7 +82,7 @@ function Canvas() {
             category={filter.category}
             onChange={(val) => handleFilter('category', val)}
           />
-        </div>
+        </div>*/}
         <ViewToggle isGridView={isGridView} setIsGridView={setIsGridView} />
       </div>
       <div className="flex justify-self-end mb-6">
