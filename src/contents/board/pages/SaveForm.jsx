@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from "react";
 import { useForm } from "react-hook-form";
-import Button from "../../shared/layouts/Button.jsx";
+import Button from "../../../components/Button.jsx";
 import {useNavigate, useParams} from "react-router";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {createBoard, deleteBoard, getBoardDetail, updateBoard} from "../api/boardApi.js";
-import { board } from "../../shared/api/http.js";
-import CommonEditor from "../../shared/components/editor/CommonEditor.jsx";
+import {createBoard, deleteBoard, getBoardDetail, updateBoard} from "../../../api/boardApi.js";
+import { board } from "../../../api/http.js";
+import CommonEditor from "../../../components/editor/CommonEditor.jsx";
 
 function SaveForm() {
     const editorRef = useRef(null);

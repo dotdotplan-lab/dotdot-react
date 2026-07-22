@@ -1,4 +1,4 @@
-import MainSpace from "../shared/layouts/MainSpace.jsx";
+import MainSpace from "../../layouts/MainSpace.jsx";
 
 function Blog() {
 

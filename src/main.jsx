@@ -6,14 +6,14 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './index.css';
 import App from './App.jsx';
 import Home from './Home.jsx';
-import ErrorPage from './shared/pages/ErrorPage.jsx';
-import CanvasDetail from "./canvas/pages/CanvasDetail.jsx";
-import Board from "./board/pages/Board.jsx";
-import About from "./about/About.jsx";
-import SaveForm from "./board/pages/SaveForm.jsx";
-import Shop from "./shop/Shop.jsx";
-import Blog from "./blog/Blog.jsx";
-import Canvas from "./canvas/Canvas.jsx";
+import ErrorPage from './components/ErrorPage.jsx';
+import CanvasDetail from "./contents/canvas/pages/CanvasDetail.jsx";
+import Board from "./contents/board/pages/Board.jsx";
+import About from "./contents/about/About.jsx";
+import SaveForm from "./contents/board/pages/SaveForm.jsx";
+import Shop from "./contents/shop/Shop.jsx";
+import Blog from "./contents/blog/Blog.jsx";
+import Canvas from "./contents/canvas/Canvas.jsx";
 
 const queryClient = new QueryClient();
 

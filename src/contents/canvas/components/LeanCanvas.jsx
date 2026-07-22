@@ -1,5 +1,5 @@
 import CanvasCard from './CanvasCard.jsx';
-import { CANVAS_SECTION } from '../../shared/constants/canvasSection';
+import { CANVAS_SECTION } from '../../../constants/canvasSection.js';
 
 function LeanCanvas({ canvas, canvasId }) {
   const getNotes = (sectionType) => canvas.notes?.filter((note) => note.sectionType === sectionType) ?? [];

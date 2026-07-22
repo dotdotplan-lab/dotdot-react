@@ -1,8 +1,8 @@
 import {useNavigate} from "react-router";
 import {useQuery} from "@tanstack/react-query";
-import Button from "../../shared/layouts/Button.jsx";
-import { formatDate } from '../../shared/utils/formatDate.js';
-import { getBoardList } from '../api/boardApi.js';
+import Button from "../../../components/Button.jsx";
+import { formatDate } from '../../../utils/formatDate.js';
+import { getBoardList } from '../../../api/boardApi.js';
 
 const Board = () => {
     const navigate = useNavigate();

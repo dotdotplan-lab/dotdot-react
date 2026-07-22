@@ -1,4 +1,4 @@
-import { board } from '../../shared/api/http.js';
+import { board } from './http.js';
 
 export const getBoardList = () => board.get('/list').then((res) => res.data.data);
 export const getBoardDetail = (id) => board.get(`/${id}`).then((res) => res.data.data);

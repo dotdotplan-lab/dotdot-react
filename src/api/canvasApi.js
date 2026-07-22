@@ -1,4 +1,4 @@
-import { canvas } from '../../shared/api/http.js';
+import { canvas } from './http.js';
 
 export const getCanvasList = (params) => canvas.get('/canvaslist', { params }).then((res) => res.data.data); // 캔버스 목록
 export const getCanvasDetail = (id) => canvas.get(`/${id}`).then((res) => res.data.data); // 캔버스 상세, 노트 정보 가져옴.

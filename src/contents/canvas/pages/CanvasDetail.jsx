@@ -1,7 +1,7 @@
 import CanvasTitle from '../components/CanvasTitle.jsx';
 import LeanCanvas from '../components/LeanCanvas.jsx';
 import { useParams } from 'react-router';
-import {getCanvasDetail, updateCanvas } from '../api/canvasApi.js';
+import {getCanvasDetail, updateCanvas } from '../../../api/canvasApi.js';
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 
 function CanvasDetail() {

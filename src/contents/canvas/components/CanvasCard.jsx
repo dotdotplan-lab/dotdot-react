@@ -1,7 +1,7 @@
 import { FaPlus } from 'react-icons/fa';
 import Note from './Note.jsx';
 import {useMutation, useQueryClient} from "@tanstack/react-query";
-import {createCanvasNote, deleteCanvasNote, updateCanvasNote} from "../api/canvasApi.js";
+import {createCanvasNote, deleteCanvasNote, updateCanvasNote} from "../../../api/canvasApi.js";
 
 function CanvasCard({ canvasId, sectionType, title, isSubTitle = false, notes = [] }) {
   const queryClient = useQueryClient();

@@ -5,14 +5,14 @@ import {
   createCanvas,
   deleteCanvas,
   getCanvasList,
-} from './api/canvasApi.js';
-import Loading from '../shared/layouts/Loading.jsx';
-import Error from '../shared/layouts/Error.jsx';
-import Button from '../shared/layouts/Button.jsx';
+} from '../../api/canvasApi.js';
+import Loading from '../../components/Loading.jsx';
+import Error from '../../components/Error.jsx';
+import Button from '../../components/Button.jsx';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import SearchBar from '../shared/layouts/SearchBar.jsx';
+import SearchBar from '../../components/SearchBar.jsx';
 import CategoryFilter from './CategoryFilter.jsx';
-import MainSpace from "../shared/layouts/MainSpace.jsx";
+import MainSpace from "../../layouts/MainSpace.jsx";
 
 function Canvas() {
   const [filter, setFilter] = useState({

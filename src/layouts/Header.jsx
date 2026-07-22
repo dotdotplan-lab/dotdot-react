@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router';
 import { FaEnvelope, FaHome, FaBars, FaTimes, FaIdCard, FaCalendar, FaBlog} from 'react-icons/fa';
 import { useState } from 'react';
-import Button from './Button.jsx';
+import Button from '../components/Button.jsx';
 import {FaPencil, FaPerson, FaPhotoFilm, FaShop} from "react-icons/fa6";
 // import './Header.css';
 

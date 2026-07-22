@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { FaTrash } from 'react-icons/fa';
-import {formatDate} from "../../shared/utils/formatDate.js";
+import {formatDate} from "../../../utils/formatDate.js";
 
 export function CanvasItem({ id, title, updatedAt, category, onDelete }) {
   return (

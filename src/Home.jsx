@@ -1,4 +1,4 @@
-import MainSpace from "./shared/layouts/MainSpace.jsx";
+import MainSpace from "./layouts/MainSpace.jsx";
 
 function Home() {
   // 1. 데이터 정의
