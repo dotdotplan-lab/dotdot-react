@@ -54,30 +54,29 @@ function Home() {
    MariaDB`;
 
   return (
-          <div className="max-w-7xl mx-auto space-y-4 py-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-4 py-10">
 
-            <div className="text-center space-y-1.5">
+            <div className="text-center space-y-3">
               <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                 포트폴리오 시연용 웹사이트 <span className="text-blue-600">(React)</span>
               </h1>
-              <p className="text-md-center text-slate-500">
+              <p className="text-md-center text-slate-500 mt-4">
                 React와 Spring Boot 기반으로 개발한 포트폴리오 시연용 웹 애플리케이션입니다. </p>
-              <br />
-              <p className="text-xs text-purple-700 italic underline">
+              <p className="text-xs text-purple-700 mt-4 italic underline">
                 포트폴리오 시연용 웹사이트 (Vue3)는 준비중입니다.
               </p>
             </div>
 
-            <div className="w-fit mx-auto bg-white rounded-2xl border border-white p-6 overflow-x-auto">
-              <div className="flex flex-col lg:flex-row gap-6 items-start w-fit">
+            <div className="w-full mx-auto bg-white rounded-2xl border border-white p-6 overflow-x-auto">
+              <div className="flex flex-col lg:flex-row gap-6 items-start w-full">
 
-                <div className="w-[900px] shrink-0 space-y-5">
+                <div className="flex-1 min-w-0 space-y-5">
 
                   <div>
                     <h2 className="text-md-center font-bold uppercase tracking-wider text-slate-700 mb-2">
                       개발 환경
                     </h2>
-                    <div className="grid grid-cols-5 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                       {devEnvironments.map((env, idx) => (
                           <div key={idx} className="p-2 bg-slate-50 border border-slate-100 rounded-xl flex flex-col justify-between">
                             <span className="text-[10px] font-semibold text-slate-400">{env.label}</span>
@@ -155,7 +154,7 @@ function Home() {
                 </div>
 
                 <div className="shrink-0 flex justify-center items-center self-center h-full">
-                  <div className="w-fit rounded-xl px-4 py-3 bg-white border border-slate-200 text-slate-700 font-mono flex flex-col items-center justify-between shadow-xs">
+                  <div className="w-full rounded-xl px-4 py-3 bg-white border border-slate-200 text-slate-700 font-mono flex flex-col items-center justify-between shadow-xs">
                     <div className="w-full text-center border-b border-slate-700 pb-1.5 mb-1.5 whitespace-nowrap">
                     <span className="text-[12px] font-bold tracking-wider text-slate-700 uppercase">
                       시스템 구조
