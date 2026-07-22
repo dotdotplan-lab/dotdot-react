@@ -54,9 +54,7 @@ function Home() {
    MariaDB`;
 
   return (
-      <MainSpace>
-        <div>
-          <div className="max-w-7xl mx-auto space-y-4">
+          <div className="max-w-7xl mx-auto space-y-4 py-5">
 
             <div className="text-center space-y-1.5">
               <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -65,7 +63,7 @@ function Home() {
               <p className="text-xs text-slate-500">
                 React와 Spring Boot 기반으로 개발한 포트폴리오 시연용 웹 애플리케이션입니다. </p>
               <br />
-              <p className="text-xs text-slate-500 italic">
+              <p className="text-xs text-purple-500 italic">
                 포트폴리오 시연용 웹사이트 (Vue3)는 준비중입니다.
               </p>
             </div>
@@ -180,8 +178,6 @@ function Home() {
             </div>
 
           </div>
-        </div>
-      </MainSpace>
   );
 }
 

@@ -34,6 +34,7 @@ import 'tinymce/plugins/emoticons/js/emojis';
 import {Header} from "./layouts/Header.jsx";
 import MainSpace from "./layouts/MainSpace.jsx";
 import {Outlet} from "react-router";
+import {Footer} from "./layouts/Footer.jsx";
 
 // tinymce editor global 변수 등록
 window.tinymce = tinymce;
@@ -51,10 +52,13 @@ function App() {
     }
   };
   return (
-      <>
+      <div className="min-h-screen flex flex-col">
           <Header />
-          <Outlet />
-      </>
+          <main className="flex-1">
+            <Outlet />
+            </main>
+          <Footer />
+      </div>
   );
 }
 
