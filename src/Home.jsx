@@ -55,9 +55,6 @@ function Home() {
         <div className="min-h-screen bg-slate-50 py-6 px-4">
           <div className="max-w-7xl mx-auto space-y-4">
 
-            {/* -------------------------------------------------------------
-              [1] 상단 헤더
-          ------------------------------------------------------------- */}
             <div className="text-center space-y-1.5">
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
               Portfolio Site
@@ -70,15 +67,11 @@ function Home() {
               </p>
             </div>
 
-            {/* -------------------------------------------------------------
-              [2] 메인 카드 (콘텐츠 너비에 맞게 자동 조절)
-          ------------------------------------------------------------- */}
             <div className="w-fit mx-auto bg-white rounded-2xl border border-slate-200 p-6 shadow-sm overflow-x-auto">
               <div className="flex flex-col lg:flex-row gap-6 items-start w-fit">
 
                 <div className="w-[650px] shrink-0 space-y-5">
 
-                  {/* 개발 환경 카드 */}
                   <div>
                     <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                       개발 환경
@@ -95,7 +88,6 @@ function Home() {
                     </div>
                   </div>
 
-                  {/* 기술 스택 테이블 */}
                   <div>
                     <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                       기술 스택 및 시연 영상
@@ -161,7 +153,6 @@ function Home() {
 
                 </div>
 
-                {/* [우측 영역] 시스템 구조 카드 */}
                 <div className="shrink-0 flex justify-center items-center self-center h-full">
                   <div className="w-fit rounded-xl px-4 py-3 bg-white border border-slate-200 text-slate-700 font-mono flex flex-col items-center justify-between shadow-xs">
                     <div className="w-full text-center border-b border-slate-100 pb-1.5 mb-1.5 whitespace-nowrap">
