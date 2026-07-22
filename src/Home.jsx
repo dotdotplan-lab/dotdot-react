@@ -7,7 +7,7 @@ function Home() {
       id: 1,
       gubun: "Frontend",
       langs: "JavaScript",
-      devenv: ["React", "Tailwind CSS", "Zustand", "React Query", "TinyMCE", "AG Grid"],
+      devenv: ["React", "Tailwind CSS", "Zustand", "TanStack Query", "TinyMCE", "AG Grid"],
       batch: "Vercel",
       url: "https://youtu.be/LAQTHe-ciwc",
     },
@@ -33,22 +33,25 @@ function Home() {
     { label: "IDE", value: "IntelliJ IDEA" },
     { label: "Domain", value: "DuckDNS" },
     { label: "Web Server", value: "Nginx" },
-    { label: "HTTPS 인증", value: "Let's Encrypt" },
+    { label: "HTTPS", value: "Let's Encrypt" },
+    { label: "OS", value: "Ubuntu 24.04 LTS" },
   ];
 
   const rawArchitectureText = `Client (React)
-       │
-    Vercel
-       │
-     HTTPS
-       │
-     Nginx
-       │
-  Spring Boot
-       │
-    MyBatis
-       │
-    MariaDB`;
+      │
+   Vercel
+      │
+    HTTPS
+      │
+    Nginx
+      │
+ Docker Compose
+      │
+ Spring Boot
+      │
+   MyBatis
+      │
+   MariaDB`;
 
   return (
       <MainSpace>
@@ -56,14 +59,14 @@ function Home() {
           <div className="max-w-7xl mx-auto space-y-4">
 
             <div className="text-center space-y-1.5">
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
-              Portfolio Site
-            </span>
               <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                 포트폴리오 시연용 웹사이트 <span className="text-blue-600">(React)</span>
               </h1>
+              <p className="text-xs text-slate-500">
+                React와 Spring Boot 기반으로 개발한 포트폴리오 시연용 웹 애플리케이션입니다. </p>
+              <br />
               <p className="text-xs text-slate-500 italic">
-                포트폴리오 시연용 웹사이트 (Vue3) : <span className="font-medium text-slate-600">준비 중</span>
+                포트폴리오 시연용 웹사이트 (Vue3)는 준비중입니다.
               </p>
             </div>
 
@@ -98,9 +101,9 @@ function Home() {
                         <tr>
                           <th className="w-[12%] px-3 py-2.5">영역</th>
                           <th className="w-[10%] px-3 py-2.5">언어</th>
-                          <th className="w-[33%] px-3 py-2.5">프레임워크 & 라이브러리</th>
-                          <th className="w-[32%] px-3 py-2.5">배포 & 인프라</th>
-                          <th className="w-[12%] px-2 py-2.5 text-center">시연 영상</th>
+                          <th className="w-[33%] px-3 py-2.5">프레임워크, 라이브러리</th>
+                          <th className="w-[32%] px-3 py-2.5">배포 인프라</th>
+                          <th className="w-[12%] px-2 py-2.5 text-center">관련 영상</th>
                         </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100 font-normal">
@@ -136,9 +139,9 @@ function Home() {
                                         href={info.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center px-2 py-1 font-medium text-white bg-red-500 rounded"
+                                        className="items-center justify-center px-2 py-1 text-[10px] font-medium text-white bg-red-500 rounded"
                                     >
-                                      YouTube
+                                      ▶
                                     </a>
                                 ) : (
                                     <span className="text-slate-300 text-xs">-</span>
