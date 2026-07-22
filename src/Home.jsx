@@ -99,17 +99,17 @@ function Home() {
                       <table className="w-full text-left text-xs text-slate-600 table-fixed">
                         <thead className="bg-slate-50 uppercase font-semibold border-b border-slate-200 text-slate-500">
                         <tr>
-                          <th className="w-[12%] px-3 py-2.5">영역</th>
-                          <th className="w-[10%] px-3 py-2.5">언어</th>
-                          <th className="w-[33%] px-3 py-2.5">프레임워크, 라이브러리</th>
-                          <th className="w-[32%] px-3 py-2.5">배포 인프라</th>
+                          <th className="w-[12%] px-3 py-2.5 text-center">영역</th>
+                          <th className="w-[10%] px-3 py-2.5 text-center">언어</th>
+                          <th className="w-[33%] px-3 py-2.5 text-center">프레임워크, 라이브러리</th>
+                          <th className="w-[32%] px-3 py-2.5 text-center">배포 인프라</th>
                           <th className="w-[12%] px-2 py-2.5 text-center">관련 영상</th>
                         </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100 font-normal">
                         {infos.map((info) => (
-                            <tr key={info.id} className="hover:bg-slate-50/60 transition-colors">
-                              <td className="px-3 py-2.5 font-semibold text-slate-900">
+                            <tr key={info.id}>
+                              <td className="px-3 py-2.5 font-semibold text-slate-700">
                               <span>
                                 {info.gubun}
                               </span>
@@ -139,7 +139,7 @@ function Home() {
                                         href={info.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="items-center justify-center px-2 py-1 text-[10px] font-medium text-white bg-red-500 rounded"
+                                        className="items-center justify-center px-2 py-1 text-[7px] font-medium text-white bg-red-500 rounded"
                                     >
                                       ▶
                                     </a>
