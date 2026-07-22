@@ -7,7 +7,7 @@ function Home() {
       id: 1,
       gubun: "Frontend",
       langs: "JavaScript",
-      devenv: ["React", "Tailwind CSS", "Zustand", "TanStack Query", "TinyMCE", "AG Grid"],
+      devenv: ["React", "Tailwind CSS", "TanStack Query", "TinyMCE", "AG Grid"],
       batch: "Vercel",
       url: "https://youtu.be/LAQTHe-ciwc",
     },
@@ -16,7 +16,7 @@ function Home() {
       gubun: "Backend",
       langs: "Java",
       devenv: ["Spring Boot", "MyBatis", "Lombok", "JUnit 5", "Gradle"],
-      batch: "AWS EC2 (Ubuntu 24.04 LTS), Docker, Docker Compose, Nginx",
+      batch: "AWS EC2, Docker Compose, Nginx",
       url: "https://youtu.be/wZbT7MyvCKY",
     },
     {
@@ -79,7 +79,7 @@ function Home() {
                     <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                       개발 환경
                     </h2>
-                    <div className="grid grid-cols-6 gap-2">
+                    <div className="grid grid-cols-5 gap-2">
                       {devEnvironments.map((env, idx) => (
                           <div key={idx} className="p-2 bg-slate-50 border border-slate-100 rounded-xl flex flex-col justify-between">
                             <span className="text-[10px] font-semibold text-slate-400">{env.label}</span>
