@@ -52,7 +52,7 @@ function Home() {
 
   return (
       <MainSpace>
-        <div className="min-h-screen bg-slate-50 py-6 px-4">
+        <div>
           <div className="max-w-7xl mx-auto space-y-4">
 
             <div className="text-center space-y-1.5">
@@ -63,7 +63,7 @@ function Home() {
                 포트폴리오 시연용 웹사이트 <span className="text-blue-600">(React)</span>
               </h1>
               <p className="text-xs text-slate-500 italic">
-                📌 포트폴리오 시연용 웹사이트 (Vue3) : <span className="font-medium text-slate-600">준비 중</span>
+                포트폴리오 시연용 웹사이트 (Vue3) : <span className="font-medium text-slate-600">준비 중</span>
               </p>
             </div>
 
