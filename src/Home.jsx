@@ -54,27 +54,27 @@ function Home() {
    MariaDB`;
 
   return (
-          <div className="max-w-7xl mx-auto space-y-4 py-5">
+          <div className="max-w-7xl mx-auto space-y-4 py-10">
 
             <div className="text-center space-y-1.5">
               <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                 포트폴리오 시연용 웹사이트 <span className="text-blue-600">(React)</span>
               </h1>
-              <p className="text-xs text-slate-500">
+              <p className="text-md-center text-slate-500">
                 React와 Spring Boot 기반으로 개발한 포트폴리오 시연용 웹 애플리케이션입니다. </p>
               <br />
-              <p className="text-xs text-purple-500 italic">
+              <p className="text-xs text-purple-700 italic underline">
                 포트폴리오 시연용 웹사이트 (Vue3)는 준비중입니다.
               </p>
             </div>
 
-            <div className="w-fit mx-auto bg-white rounded-2xl border border-slate-200 p-6 shadow-sm overflow-x-auto">
+            <div className="w-fit mx-auto bg-white rounded-2xl border border-white p-6 overflow-x-auto">
               <div className="flex flex-col lg:flex-row gap-6 items-start w-fit">
 
-                <div className="w-[650px] shrink-0 space-y-5">
+                <div className="w-[900px] shrink-0 space-y-5">
 
                   <div>
-                    <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                    <h2 className="text-md-center font-bold uppercase tracking-wider text-slate-700 mb-2">
                       개발 환경
                     </h2>
                     <div className="grid grid-cols-5 gap-2">
@@ -90,7 +90,7 @@ function Home() {
                   </div>
 
                   <div>
-                    <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                    <h2 className="text-md-center font-bold uppercase tracking-wider text-slate-700 mb-2">
                       기술 스택 및 시연 영상
                     </h2>
                     <div className="border border-slate-200 rounded-xl overflow-hidden">
@@ -119,16 +119,16 @@ function Home() {
                                 <div className="flex flex-wrap gap-1">
                                   {Array.isArray(info.devenv) ? (
                                       info.devenv.map((item, index) => (
-                                          <span key={index} className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-blue-50 text-blue-500">
+                                          <span key={index} className="inline-flex items-center px-1.5 py-0.5 rounded text-[12px] font-medium bg-blue-50 text-blue-500">
                                       {item}
                                     </span>
                                       ))
                                   ) : (
-                                      <span className="text-xs">{info.devenv}</span>
+                                      <span className="text-md-center">{info.devenv}</span>
                                   )}
                                 </div>
                               </td>
-                              <td className="px-3 py-2.5 text-slate-600 text-[11px] leading-relaxed break-words">
+                              <td className="px-3 py-2.5 text-slate-600 text-[12px] leading-relaxed break-words">
                                 {info.batch}
                               </td>
                               <td className="px-2 py-2.5 text-center">
@@ -142,7 +142,7 @@ function Home() {
                                       ▶
                                     </a>
                                 ) : (
-                                    <span className="text-slate-300 text-xs">-</span>
+                                    <span className="text-slate-300 text-md-center">-</span>
                                 )}
                               </td>
                             </tr>
@@ -157,7 +157,7 @@ function Home() {
                 <div className="shrink-0 flex justify-center items-center self-center h-full">
                   <div className="w-fit rounded-xl px-4 py-3 bg-white border border-slate-200 text-slate-700 font-mono flex flex-col items-center justify-between shadow-xs">
                     <div className="w-full text-center border-b border-slate-700 pb-1.5 mb-1.5 whitespace-nowrap">
-                    <span className="text-[10px] font-bold tracking-wider text-slate-700 uppercase">
+                    <span className="text-[12px] font-bold tracking-wider text-slate-700 uppercase">
                       시스템 구조
                     </span>
                     </div>
