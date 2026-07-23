@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Header 스타일 */
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* TinyMCE 표 스타일(읽기 모드 dangerouslySetInnerHTML에서 보이는 스타일) */
 .prose table {
     border-collapse: collapse;
@@ -17,12 +23,7 @@
     white-space: normal;
 }
 
-/* Header --------- */
-.nav {
-    display: flex;
-    justify-content: space-between;
-}
-/* ProductGrid ------- */
+/* AG Grid 스타일 ------- */
 .thumb { width: 32px; height: 32px; object-fit: cover; border-radius: 4px; }
 .thumb--empty { background: #eee; }
 .badge { font-size: 12px; padding: 2px 8px; border-radius: 4px; }
