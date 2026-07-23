@@ -3,7 +3,6 @@ import { FaEnvelope, FaHome, FaBars, FaTimes, FaIdCard, FaCalendar, FaBlog} from
 import { useState } from 'react';
 import Button from '../components/Button.jsx';
 import {FaPencil, FaPerson, FaPhotoFilm, FaShop} from "react-icons/fa6";
-// import './Header.css';
 
 export function Header() {
 
