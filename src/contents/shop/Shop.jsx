@@ -1,17 +1,17 @@
 import MainSpace from "../../layouts/MainSpace.jsx";
+import ProductMngt from "./ProductMngt.jsx";
+import Button from "../../components/Button.jsx";
 
 function Shop() {
 
   return (
-
-      <MainSpace>
-          <div className="max-h-screen flex items-center justify-center bg-white px-6">
-              <div>
-                  <h1>Shop</h1>
-                  <h1>쇼핑몰, 상품관리 구현 예정(AgGrid 활용)</h1>
-              </div>
+      <div className="container mx-auto px-4 py-8">
+          <div className="flex items-center justify-between mb-4">
+              <h1 className="text-2xl font-bold text-gray-800">상품 관리</h1>
           </div>
-      </MainSpace>
+          <hr className="border-gray-300 mb-6" />
+          <ProductMngt />
+      </div>
   );
 }
 export default Shop;
