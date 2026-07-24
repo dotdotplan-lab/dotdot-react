@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import {CanvasList} from "./components/CanvasList.jsx";
-import { ViewToggle } from './components/ViewToggle.jsx';
+import {CanvasList} from "../components/CanvasList.jsx";
+import { ViewToggle } from '../components/ViewToggle.jsx';
 import {
   createCanvas,
   deleteCanvas,
   getCanvasList,
-} from '../../api/canvasApi.js';
-import Loading from '../../components/Loading.jsx';
-import Error from '../../components/Error.jsx';
-import Button from '../../components/Button.jsx';
+} from '../../../api/canvasApi.js';
+import Loading from '../../../components/Loading.jsx';
+import Error from '../../../components/Error.jsx';
+import Button from '../../../components/Button.jsx';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import SearchBar from '../../components/SearchBar.jsx';
-import CategoryFilter from './CategoryFilter.jsx';
-import MainSpace from "../../layouts/MainSpace.jsx";
+import SearchBar from '../../../components/SearchBar.jsx';
+import CategoryFilter from '../components/CategoryFilter.jsx';
+import MainSpace from "../../../layouts/MainSpace.jsx";
 
 function Canvas() {
   const [filter, setFilter] = useState({

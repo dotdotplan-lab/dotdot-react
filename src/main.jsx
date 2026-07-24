@@ -10,9 +10,9 @@ import CanvasDetail from "./contents/canvas/pages/CanvasDetail.jsx";
 import Board from "./contents/board/pages/Board.jsx";
 import About from "./contents/about/About.jsx";
 import SaveForm from "./contents/board/pages/SaveForm.jsx";
-import Shop from "./contents/shop/Shop.jsx";
+import Shop from "./contents/shop/pages/Shop.jsx";
 import Blog from "./contents/blog/Blog.jsx";
-import Canvas from "./contents/canvas/Canvas.jsx";
+import Canvas from "./contents/canvas/pages/Canvas.jsx";
 
 const queryClient = new QueryClient();
 

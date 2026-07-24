@@ -51,31 +51,46 @@ function ProductGrid({ onEdit, onDelete }) {
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     const columnDefs = useMemo(() => [
-        { headerCheckboxSelection: true, checkboxSelection: true, width: 44, pinned: "left" },
-        { headerName: "No", valueGetter: "node.rowIndex + 1", width: 75 },
-        { headerName: "이미지", field: "thumbnailUrl", cellRenderer: ThumbnailRenderer, width: 90, sortable: false },
-        { headerName: "상품코드", field: "productCode", width: 110 },
-        { headerName: "상품명", field: "productName", minWidth: 160},
-        { headerName: "카테고리", field: "category", cellRenderer: CategoryRenderer, width: 220 },
+        { headerName: "No", valueGetter: "node.rowIndex + 1", width: 55, filter: false, sortable: false },
+        { headerName: "이미지", field: "thumbnailUrl", cellRenderer: ThumbnailRenderer, width: 90, filter: false, sortable: false },
+        { headerName: "상품코드", field: "productCode", width: 110, filter: false },
+        { headerName: "상품명", field: "productName", width: 160, filter: false},
+        { headerName: "카테고리", field: "category", cellRenderer: CategoryRenderer, width: 220,
+            valueGetter: params => params.data.category, filter: false },
         {
             headerName: "판매가",
             field: "price",
             width: 110,
             type: "rightAligned",
-            valueFormatter: (p) => p.value?.toLocaleString() + "원",
+            valueFormatter: (p) => p.value?.toLocaleString() + "원", filter: false,
         },
-        { headerName: "재고", field: "stockQty", width: 80, type: "rightAligned" },
-        { headerName: "상태", field: "status", cellRenderer: StatusRenderer, width: 90 },
-        { headerName: "등록일", field: "createdAt", width: 120, valueFormatter: (p) => p.value?.slice(0, 10) },
-        { headerName: "등록자", field: "createdBy", width: 100 },
+        { headerName: "재고", field: "stockQty", width: 80, type: "rightAligned", filter: false },
+        { headerName: "상태", field: "status", cellRenderer: StatusRenderer, width: 90, filter: false },
+        { headerName: "등록일", field: "createdAt", width: 120, valueFormatter: (p) => p.value?.slice(0, 10), filter: false },
+        { headerName: "등록자", field: "createdBy", width: 100, filter: false },
         { headerName: "관리", cellRenderer: ActionsRenderer, width: 90, sortable: false, filter: false },
     ],[]);
+
+    const selectionColumnDef = useMemo(() => ({
+        pinned: "left",
+        width: 50,
+    }), []);
 
     const defaultColDef = useMemo(() => ({
         resizable: true,
         sortable: true,
         filter: true,
     }), []);
+
+    const gridOptions = {
+        rowSelection: {
+            mode: 'multiRow',
+            checkboxes: true,
+            headerCheckbox: true,
+            selectAll: "all",
+        },
+    };
+
     const dummyData = [
         {
             productCode: "P0001",
@@ -137,12 +152,14 @@ function ProductGrid({ onEdit, onDelete }) {
     return (
         <div className="ag-theme-alpine" style={{ height: 600, width: "100%" }}>
             <AgGridReact
+                modules={modules}
                 theme="legacy"
                 ref={gridRef}
                 rowData={rowData}
                 columnDefs={columnDefs}
                 defaultColDef={defaultColDef}
-                rowSelection="multiple"
+                rowSelection={gridOptions.rowSelection}
+                selectionColumnDef={selectionColumnDef}
                 onGridReady={onGridReady}
                 context={{ onEdit, onDelete, onViewImages: setSelectedProduct }}
                 pagination={true}

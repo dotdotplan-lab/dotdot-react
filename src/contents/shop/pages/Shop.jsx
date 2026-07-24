@@ -1,6 +1,6 @@
-import MainSpace from "../../layouts/MainSpace.jsx";
+import MainSpace from "../../../layouts/MainSpace.jsx";
 import ProductMngt from "./ProductMngt.jsx";
-import Button from "../../components/Button.jsx";
+import Button from "../../../components/Button.jsx";
 
 function Shop() {
 
