@@ -25,7 +25,7 @@ function Home() {
       langs: "SQL",
       devenv: ["MariaDB"],
       batch: "Docker Container (AWS EC2)",
-      url: "https://youtube.com/shorts/s65MDtGfIXg?feature=share",
+      url: "https://youtube.com/shorts/tSCcRB6frFk?feature=share",
     },
   ];
 
